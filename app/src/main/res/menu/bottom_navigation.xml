@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/btn_contact"
+        android:icon="@drawable/selector_contact"
+        android:title="연락처" />
+
+    <item
+        android:id="@+id/btn_keypad"
+        android:icon="@drawable/selector_keypad"
+        android:title="키패드" />
+
+    <item
+        android:id="@+id/btn_record"
+        android:icon="@drawable/selector_history"
+        android:title="최근기록" />
+
+    <item
+        android:id="@+id/btn_mypage"
+        android:icon="@drawable/selector_mypage"
+        android:title="마이페이지" />
+
+</menu>
