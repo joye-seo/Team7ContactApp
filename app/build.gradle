@@ -7,6 +7,7 @@ android {
     namespace 'com.example.team7contactapp'
     compileSdk 33
 
+
     defaultConfig {
         applicationId "com.example.team7contactapp"
         minSdk 26

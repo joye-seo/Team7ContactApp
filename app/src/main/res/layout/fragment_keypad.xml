@@ -1,13 +1,399 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp">
+
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_plus"/>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_magnifying" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+           android:src="@drawable/ic_ellipsis" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/numberTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_marginTop="150dp"
+            android:textStyle="bold"
+            android:textSize="40dp"/>
+
+        <GridLayout
+            android:id="@+id/gradId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:columnCount="3"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/numberOne"
+                    style="@style/NumberStyle"
+                    android:text="1" />
+
+                <TextView
+                    android:id="@+id/numberOne1"
+                    style="@style/LetterStyle"
+                    android:text="" />
+
+                <TextView
+                    android:id="@+id/numberOne2"
+                    style="@style/LetterStyle"
+                    android:text="" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/numberTwo"
+                    style="@style/NumberStyle"
+                    android:text="2" />
+
+                <TextView
+                    android:id="@+id/numberTwo2"
+                    style="@style/LetterStyle"
+                    android:text="ABC" />
+
+                <TextView
+                    android:id="@+id/numberTwo3"
+                    style="@style/LetterStyle"
+                    android:text="" />
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/numberThree"
+                    style="@style/NumberStyle"
+                    android:text="3" />
+
+                <TextView
+                    android:id="@+id/numberThree2"
+                    style="@style/LetterStyle"
+                    android:text="DEF" />
+
+                <TextView
+                    android:id="@+id/numberThree3"
+                    style="@style/LetterStyle"
+                    android:text="" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/numberFour"
+                    style="@style/NumberStyle"
+                    android:text="4" />
+
+                <TextView
+                    android:id="@+id/numberFour2"
+                    style="@style/LetterStyle"
+                    android:text="ㄱㅋ" />
+
+                <TextView
+                    android:id="@+id/numberFour3"
+                    style="@style/LetterStyle"
+                    android:text="GHI" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/numberFive"
+                    style="@style/NumberStyle"
+                    android:text="5" />
+
+                <TextView
+                    android:id="@+id/numberFive2"
+                    style="@style/LetterStyle"
+                    android:text="ㄴㄹ" />
+
+                <TextView
+                    android:id="@+id/numberFive3"
+                    style="@style/LetterStyle"
+                    android:text="JKL" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/numberSix"
+                    style="@style/NumberStyle"
+                    android:text="6" />
+
+                <TextView
+                    android:id="@+id/numberSix2"
+                    style="@style/LetterStyle"
+                    android:text="ㄷㅌ" />
+
+                <TextView
+                    android:id="@+id/numberSix3"
+                    style="@style/LetterStyle"
+                    android:text="MNO" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/numberSeven"
+                    style="@style/NumberStyle"
+                    android:text="7" />
+
+                <TextView
+                    android:id="@+id/numberSeven2"
+                    style="@style/LetterStyle"
+                    android:text="ㅂㅍ" />
+
+                <TextView
+                    android:id="@+id/numberSeven3"
+                    style="@style/LetterStyle"
+                    android:text="PQRS" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/numberEight"
+                    style="@style/NumberStyle"
+                    android:text="8" />
+
+                <TextView
+                    android:id="@+id/numberEight2"
+                    style="@style/LetterStyle"
+                    android:text="ㅅㅎ" />
+
+                <TextView
+                    android:id="@+id/numberEight3"
+                    style="@style/LetterStyle"
+                    android:text="TUV" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/numberNine"
+                    style="@style/NumberStyle"
+                    android:text="9" />
+
+                <TextView
+                    android:id="@+id/numberNine2"
+                    style="@style/LetterStyle"
+                    android:text="ㅈㅊ" />
+
+                <TextView
+                    android:id="@+id/numberNine3"
+                    style="@style/LetterStyle"
+                    android:text="WXYZ" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/star"
+                    style="@style/NumberStyle"
+                    android:text="*" />
+
+                <TextView
+                    android:id="@+id/star2"
+                    style="@style/LetterStyle"
+                    android:text="" />
+
+                <TextView
+                    android:id="@+id/star3"
+                    style="@style/LetterStyle"
+                    android:text="" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/numberZero"
+                    style="@style/NumberStyle"
+                    android:text="0" />
+
+                <TextView
+                    android:id="@+id/numberZero2"
+                    style="@style/LetterStyle"
+                    android:text="ㅇㅁ" />
+
+                <TextView
+                    android:id="@+id/numberZero3"
+                    style="@style/LetterStyle"
+                    android:text="+" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/numberShop"
+                    style="@style/NumberStyle"
+                    android:text="#" />
+
+                <TextView
+                    android:id="@+id/numberShop2"
+                    style="@style/LetterStyle"
+                    android:text="" />
+
+                <TextView
+                    android:id="@+id/numberShop3"
+                    style="@style/LetterStyle"
+                    android:text="" />
+
+            </LinearLayout>
+
+        </GridLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/callBtn"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/ic_video_call" />
+
+
+            <ImageView
+                android:id="@+id/callBtn"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/closeBtn"
+                app:layout_constraintStart_toEndOf="@+id/imageView4"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_telephone" />
+
+
+            <ImageView
+                android:id="@+id/closeBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/callBtn"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_close" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </LinearLayout>
+
+
 
 </FrameLayout>
