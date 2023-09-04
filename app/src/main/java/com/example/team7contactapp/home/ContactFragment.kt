@@ -11,7 +11,7 @@ import com.example.team7contactapp.databinding.FragmentContactBinding
 
 class ContactFragment : Fragment() {
 
-    private var _binding: FragmentContactBinding? = null
+    private var _binding: FragmentContactBinding? = null //Start
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -24,7 +24,7 @@ class ContactFragment : Fragment() {
     ): View? {
         _binding = FragmentContactBinding.inflate(inflater, container, false)
         val view = binding.root
-        return view
+        return view  //End
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -32,8 +32,8 @@ class ContactFragment : Fragment() {
 //여기서부터 작업
         //데이터 원본준비
         val dataList = mutableListOf<MyItem>()
-        dataList.add(MyItem(R.drawable.profiles, "윤동현", R.drawable.img_bookmarkon))
-        dataList.add(MyItem(R.drawable.profiles, "황진주", R.drawable.img_bookmarkoff))
+        dataList.add(MyItem(R.drawable.donghyun, "윤동현", R.drawable.img_bookmarkon))
+        dataList.add(MyItem(R.drawable.jinjoo, "황진주", R.drawable.img_bookmarkoff))
         dataList.add(MyItem(R.drawable.profiles, "서수현", R.drawable.img_bookmarkon))
         dataList.add(MyItem(R.drawable.profiles, "이종민", R.drawable.img_bookmarkon))
         dataList.add(MyItem(R.drawable.profiles, "이성진", R.drawable.img_bookmarkoff))
