@@ -16,6 +16,4 @@ class MyPageFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_my_page, container, false)
     }
-
-
 }
