@@ -12,6 +12,8 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.example.team7contactapp.databinding.FragmentKeypadBinding
 import android.Manifest
+import android.view.Gravity
+
 class KeypadFragment : Fragment() {
     companion object {
         private const val REQUEST_CALL_PHONE_PERMISSION = 1001
@@ -34,6 +36,11 @@ class KeypadFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setUpNumberClickListeners()
+
+        binding.numberTxt.apply {
+            isSingleLine = true
+            gravity = Gravity.END
+        }  //텍스트 숫자 입력시 먼저 입력된 숫자가 옆으로 밀리게 적용
 
     }
 
@@ -109,9 +116,11 @@ class KeypadFragment : Fragment() {
             } // call버튼 누를시 번호가 있으면 makecall , 없을시 토스트메세지 발송
 
 
-        }   //숫자 클릭 이벤트 , 숫자 제거 이벤트 , 숫자 전체 제거 이벤트 ,  전화 거는 버튼 이벤트 , 번호가 없을시 토스트 메세지
+        } //숫자 클릭 이벤트 , 숫자 제거 이벤트 , 숫자 전체 제거 이벤트 ,  전화 거는 버튼 이벤트 , 번호가 없을시 토스트 메세지
 
-    }
+
+
+    }  //숫자 클릭 이벤트
 
 
     private fun makeCall(number: String) {
@@ -159,10 +168,12 @@ class KeypadFragment : Fragment() {
     }  //숫자를 전부 제거하는 함수 실행 = 전부 제거
 
 
-    private fun appendNumber(s: String) {
-        val  currentText = binding.numberTxt.text.toString()
-        binding.numberTxt.text = currentText + s
 
+    private fun appendNumber(s: String) {
+
+        val currentText = binding.numberTxt.text.toString()
+
+        binding.numberTxt.text = currentText + s
 
         when(currentText.replace("-","").length){
             3,7->binding.numberTxt.text="$currentText-$s"
