@@ -29,7 +29,7 @@ class ContactFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//여기서부터 작업
+        //여기서부터 작업
         //데이터 원본준비
         val dataList = mutableListOf<MyItem>()
         dataList.add(MyItem(R.drawable.donghyun, "윤동현", R.drawable.img_bookmarkon))
@@ -40,6 +40,14 @@ class ContactFragment : Fragment() {
         dataList.add(MyItem(R.drawable.profiles, "최다현", R.drawable.img_bookmarkon))
         dataList.add(MyItem(R.drawable.profiles, "정용현", R.drawable.img_bookmarkoff))
         dataList.add(MyItem(R.drawable.profiles, "김에디", R.drawable.img_bookmarkon))
+        dataList.add(MyItem(R.drawable.profiles, "박에디", R.drawable.img_bookmarkon))
+        dataList.add(MyItem(R.drawable.profiles, "심에디", R.drawable.img_bookmarkon))
+        dataList.add(MyItem(R.drawable.profiles, "임에디", R.drawable.img_bookmarkon))
+        dataList.add(MyItem(R.drawable.profiles, "정에디", R.drawable.img_bookmarkon))
+        dataList.add(MyItem(R.drawable.profiles, "정에디", R.drawable.img_bookmarkon))
+        dataList.add(MyItem(R.drawable.profiles, "정에디", R.drawable.img_bookmarkon))
+        dataList.add(MyItem(R.drawable.profiles, "정에디", R.drawable.img_bookmarkon))
+        dataList.add(MyItem(R.drawable.profiles, "정에디", R.drawable.img_bookmarkon))
 
 
         val adapter = ContactFragmentAdapter(dataList)
