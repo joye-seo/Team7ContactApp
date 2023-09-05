@@ -1,3 +1,3 @@
-package com.example.team7contactapp.home
+package com.example.team7contactapp.data
 
 data class MyItem(val aIcon:Int, val aName:String, val aFavorite:Int){}

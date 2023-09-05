@@ -1,19 +1,20 @@
-package com.example.team7contactapp.home
+package com.example.team7contactapp.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.team7contactapp.databinding.ItemContactBinding
+import com.example.team7contactapp.data.MyItem
 
 
 class ContactFragmentAdapter(val mItems: MutableList<MyItem>) : RecyclerView.Adapter<ContactFragmentAdapter.Holder>() {
 
     interface ItemClick {
-        fun onClick(view : View, position : Int)
+        fun onClick(view: View, position: Int)
     }
 
-    var itemClick : ItemClick? = null
+    var itemClick: ItemClick? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val binding = ItemContactBinding.inflate(LayoutInflater.from(parent.context), parent, false)

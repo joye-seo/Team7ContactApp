@@ -1,7 +1,6 @@
 package com.example.team7contactapp.home
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,19 +8,20 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.team7contactapp.NameAdapter
 import com.example.team7contactapp.Names
 import com.example.team7contactapp.R
-import com.example.team7contactapp.databinding.FragmentRecordBinding
+import androidx.fragment.app.Fragment
+import com.example.team7contactapp.databinding.FragmentHistoryBinding
 
 
-class RecordFragment : Fragment() {
+class HistoryFragment : Fragment() {
 
-    private var _binding: FragmentRecordBinding? = null
+    private var _binding: FragmentHistoryBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentRecordBinding.inflate(inflater, container, false)
+        _binding = FragmentHistoryBinding.inflate(inflater, container, false)
         return binding.root
     }
 
