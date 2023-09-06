@@ -6,8 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.team7contactapp.ContactDetailActivity
-import com.example.team7contactapp.databinding.ItemContactBinding
 import com.example.team7contactapp.data.MyItem
+import com.example.team7contactapp.data.User
+import com.example.team7contactapp.databinding.ItemContactBinding
 
 
 class ContactFragmentAdapter(val mItems: MutableList<MyItem>) : RecyclerView.Adapter<ContactFragmentAdapter.Holder>() {
@@ -24,18 +25,7 @@ class ContactFragmentAdapter(val mItems: MutableList<MyItem>) : RecyclerView.Ada
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        holder.itemView.setOnClickListener {  //클릭이벤트추가부분
-            val context = holder.itemView.context
-            val intent = Intent(context, ContactDetailActivity::class.java)
-            intent.putExtra("position", position)
-            intent.putExtra("aIcon", mItems[position].icon)
-            intent.putExtra("aName", mItems[position].name)
-            intent.putExtra("aFavorite", mItems[position].favorite)
-            context.startActivity(intent)
-        }
-        holder.iconImageView.setImageResource(mItems[position].icon)
-        holder.name.text = mItems[position].name
-        holder.Favorite.setImageResource(mItems[position].favorite)
+        holder.bind(mItems[position])
     }
 
     override fun getItemId(position: Int): Long {
@@ -47,8 +37,17 @@ class ContactFragmentAdapter(val mItems: MutableList<MyItem>) : RecyclerView.Ada
     }
 
     inner class Holder(val binding: ItemContactBinding) : RecyclerView.ViewHolder(binding.root) {
-        val iconImageView = binding.itemProfile
-        val name = binding.itemUserName
-        val Favorite = binding.itemFavoriteYellow
+        fun bind(item: MyItem) {
+            binding.itemProfile.setImageResource(item.icon)
+            binding.itemUserName.text = item.name
+
+            itemView.setOnClickListener {
+                val myIntent = Intent(itemView.context, ContactDetailActivity::class.java)
+                myIntent.putExtra("Data", User.dataList[position])
+                itemView.context.startActivity(myIntent)
+            }
+        }
+
+
     }
 }

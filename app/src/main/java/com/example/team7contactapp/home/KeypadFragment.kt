@@ -44,6 +44,12 @@ class KeypadFragment : Fragment() {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        binding.root.requestLayout()
+    }
+
+
 
     private fun setUpNumberClickListeners() {
 

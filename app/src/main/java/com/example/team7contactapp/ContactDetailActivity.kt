@@ -1,10 +1,8 @@
 package com.example.team7contactapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract.CommonDataKinds.Im
-import android.widget.ImageView
-import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import com.example.team7contactapp.data.MyItem
 import com.example.team7contactapp.databinding.ActivityContactDetailBinding
 
 class ContactDetailActivity : AppCompatActivity() {
@@ -14,6 +12,13 @@ class ContactDetailActivity : AppCompatActivity() {
         binding = ActivityContactDetailBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        //parcelable 데이터를 받아올 때 사용하는 코드
+        var testList = intent.getParcelableExtra<MyItem>("Data")
+
+        //DetailActivity 와 parcelable데이터를 연결시켜줌
+        binding.tvName.text = testList?.name
+
 
         val position = intent.getIntExtra("position", -1)
         val icon = intent.getIntExtra("aIcon", R.id.item_profile)
