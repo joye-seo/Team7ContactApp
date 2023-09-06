@@ -28,9 +28,9 @@ class ContactFragmentAdapter(val mItems: MutableList<MyItem>) : RecyclerView.Ada
             val context = holder.itemView.context
             val intent = Intent(context, ContactDetailActivity::class.java)
             intent.putExtra("position", position)
-            intent.putExtra("aIcon", mItems[position].aIcon)
-            intent.putExtra("aName", mItems[position].aName)
-            intent.putExtra("aFavorite", mItems[position].aFavorite)
+            intent.putExtra("aIcon", mItems[position].icon)
+            intent.putExtra("aName", mItems[position].name)
+            intent.putExtra("aFavorite", mItems[position].favorite)
             context.startActivity(intent)
         }
         holder.iconImageView.setImageResource(mItems[position].icon)
