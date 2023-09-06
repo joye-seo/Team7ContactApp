@@ -1,12 +1,13 @@
 package com.example.team7contactapp.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.team7contactapp.ContactDialogFragment
+import com.example.team7contactapp.ContactDetailActivity
 import com.example.team7contactapp.R
 import com.example.team7contactapp.adapter.ContactFragmentAdapter
 import com.example.team7contactapp.data.MyItem
@@ -24,7 +25,7 @@ class ContactFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         _binding = FragmentContactBinding.inflate(inflater, container, false)
         val view = binding.root
         return view  //End

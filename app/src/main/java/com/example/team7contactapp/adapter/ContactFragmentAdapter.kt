@@ -1,9 +1,11 @@
 package com.example.team7contactapp.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.team7contactapp.ContactDetailActivity
 import com.example.team7contactapp.databinding.ItemContactBinding
 import com.example.team7contactapp.data.MyItem
 
@@ -23,7 +25,13 @@ class ContactFragmentAdapter(val mItems: MutableList<MyItem>) : RecyclerView.Ada
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
         holder.itemView.setOnClickListener {  //클릭이벤트추가부분
-            itemClick?.onClick(it, position)
+            val context = holder.itemView.context
+            val intent = Intent(context, ContactDetailActivity::class.java)
+            intent.putExtra("position", position)
+            intent.putExtra("aIcon", mItems[position].icon)
+            intent.putExtra("aName", mItems[position].name)
+            intent.putExtra("aFavorite", mItems[position].favorite)
+            context.startActivity(intent)
         }
         holder.iconImageView.setImageResource(mItems[position].icon)
         holder.name.text = mItems[position].name
