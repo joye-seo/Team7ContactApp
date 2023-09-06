@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.team7contactapp.NameAdapter
 import com.example.team7contactapp.Names
@@ -12,7 +13,7 @@ import com.example.team7contactapp.R
 import com.example.team7contactapp.databinding.FragmentHistoryBinding
 
 
-class HistoryFragment : Fragment() {
+class HistoryFragment : Fragment() , NameAdapter.NameItemClickListener {
 
     private var _binding: FragmentHistoryBinding? = null
     private val binding get() = _binding!!
@@ -30,34 +31,51 @@ class HistoryFragment : Fragment() {
 
 
         val namelist = arrayListOf(
-            Names(R.drawable.ic_call1, "서수현", "오전 1:34"),
-            Names(R.drawable.ic_call2, "윤동현", "오후 11:57"),
-            Names(R.drawable.ic_call3, "황진주", "오후 11:20"),
-            Names(R.drawable.ic_call2, "이종민", "오후 9:57"),
-            Names(R.drawable.ic_call3, "김에디", "오후 8:44"),
-            Names(R.drawable.ic_call1, "정용현", "오후 7:52"),
-            Names(R.drawable.ic_call2, "이성진", "오후 7:07"),
-            Names(R.drawable.ic_call1, "서수현", "오후 6:45"),
-            Names(R.drawable.ic_call1, "이종민", "오후 6:20"),
-            Names(R.drawable.ic_call3, "김에디", "오후 4:17"),
-            Names(R.drawable.ic_call2, "황진주", "오후 3:02"),
-            Names(R.drawable.ic_call3, "윤동현", "오후 12:36"),
-            Names(R.drawable.ic_call2, "이성진", "오전 11:07"),
-            Names(R.drawable.ic_call1, "이종민", "오전 1:00"),
+            Names(R.drawable.ic_call1,"서수현","오전 1:34","휴대전화 010-4565-2156","영상전화, 4분15초", R.drawable.ic_call2,R.drawable.ic_call2,R.drawable.ic_call1,R.drawable.ic_call1),
+            Names(R.drawable.ic_call2,"윤동현","오후 11:57","휴대전화 010-7207-3655","부재중 전화", R.drawable.ic_call2,R.drawable.ic_call2,R.drawable.ic_call1,R.drawable.ic_call1),
+            Names(R.drawable.ic_call3,"황진주","오후 11:20","휴대전화 010-9091-4358","수신전화, 6분31초", R.drawable.ic_call2,R.drawable.ic_call2,R.drawable.ic_call1,R.drawable.ic_call1),
+            Names(R.drawable.ic_call2,"이종민","오후 9:57","휴대전화 010-9117-1065","부재중 전화", R.drawable.ic_call2,R.drawable.ic_call2,R.drawable.ic_call1,R.drawable.ic_call1),
+            Names(R.drawable.ic_call3,"김에디","오후 8:44","휴대전화 010-2012-2365","수신전화, 8분51초", R.drawable.ic_call2,R.drawable.ic_call2,R.drawable.ic_call1,R.drawable.ic_call1),
+            Names(R.drawable.ic_call1,"정용현","오후 7:52","휴대전화 010-3054-7512","영상전화, 9분40초", R.drawable.ic_call2,R.drawable.ic_call2,R.drawable.ic_call1,R.drawable.ic_call1),
+            Names(R.drawable.ic_call2,"이성진","오후 7:07","휴대전화 010-4659-8951","부재중 전화", R.drawable.ic_call2,R.drawable.ic_call2,R.drawable.ic_call1,R.drawable.ic_call1),
+            Names(R.drawable.ic_call1,"서수현","오후 6:45","휴대전화 010-4565-2156","영상전화, 20분12초", R.drawable.ic_call2,R.drawable.ic_call2,R.drawable.ic_call1,R.drawable.ic_call1),
+            Names(R.drawable.ic_call1,"이종민","오후 6:20","휴대전화 010-9117-1065","영상전화, 23분36초", R.drawable.ic_call2,R.drawable.ic_call2,R.drawable.ic_call1,R.drawable.ic_call1),
+            Names(R.drawable.ic_call3,"김에디","오후 4:17","휴대전화 010-2012-2365","수신전화, 35분45초", R.drawable.ic_call2,R.drawable.ic_call2,R.drawable.ic_call1,R.drawable.ic_call1),
+            Names(R.drawable.ic_call2,"황진주","오후 3:02","휴대전화 010-9091-4358","부재중 전화", R.drawable.ic_call2,R.drawable.ic_call2,R.drawable.ic_call1,R.drawable.ic_call1),
+            Names(R.drawable.ic_call3,"윤동현","오후 12:36","휴대전화 010-7207-3655","수신전화, 5분02초", R.drawable.ic_call2,R.drawable.ic_call2,R.drawable.ic_call1,R.drawable.ic_call1),
+            Names(R.drawable.ic_call2,"이성진","오전 11:07","휴대전화 010-4659-8951","부재중 전화", R.drawable.ic_call2,R.drawable.ic_call2,R.drawable.ic_call1,R.drawable.ic_call1),
+            Names(R.drawable.ic_call1,"이종민","오전 1:00","휴대전화 010-9117-1065","영상전화, 7분11초", R.drawable.ic_call2,R.drawable.ic_call2,R.drawable.ic_call1,R.drawable.ic_call1),
 
             )
 
         binding.rvName.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.rvName.setHasFixedSize(true)
 
-        binding.rvName.adapter = NameAdapter(namelist)
+        binding.rvName.adapter = NameAdapter(namelist,this)
 
 
     }
+
+
+    override fun onItemClick(name : Names , position : Int) {
+
+    }
+
+
+
+
+
+
+
+
+
+
 
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
+
 }
