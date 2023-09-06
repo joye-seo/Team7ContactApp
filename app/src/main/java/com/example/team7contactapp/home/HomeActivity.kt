@@ -1,8 +1,7 @@
 package com.example.team7contactapp.home
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.example.team7contactapp.R
 import com.example.team7contactapp.adapter.HomeViewPagerAdapter
@@ -17,7 +16,7 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var contactFragment: ContactFragment
     private lateinit var keypadFragment: KeypadFragment
     private lateinit var myPageFragment: MyPageFragment
-    private lateinit var recordFragment: RecordFragment
+    private lateinit var recordFragment: HistoryFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +41,7 @@ class HomeActivity : AppCompatActivity() {
         contactFragment = ContactFragment()
         keypadFragment = KeypadFragment()
         myPageFragment = MyPageFragment()
-        recordFragment = RecordFragment()
+        recordFragment = HistoryFragment()
 
         binding.bottomNav.run {
             setOnItemSelectedListener { item ->

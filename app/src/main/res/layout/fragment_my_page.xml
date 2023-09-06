@@ -23,7 +23,7 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/mypageimage"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHeight_percent="0.6"
+                app:layout_constraintHeight_percent="0.4"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -61,138 +61,143 @@
                 app:srcCompat="@drawable/img_pen"
                 app:tint="@color/white" />
 
-            <ImageView
-                android:id="@+id/ic_name"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                app:layout_constraintBottom_toTopOf="@+id/ic_number"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/info_box"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/img_myimage"
-                app:srcCompat="@drawable/img_user"
-                app:tint="#979797" />
+                android:padding="20dp"
+                >
 
-            <ImageView
-                android:id="@+id/ic_number"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ic_name"
-                app:srcCompat="@drawable/img_call"
-                app:tint="#979797" />
+                <ImageView
+                    android:id="@+id/ic_name"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    app:layout_constraintBottom_toTopOf="@+id/ic_number"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/img_user"
+                    app:tint="#979797" />
 
-            <ImageView
-                android:id="@+id/ic_mail"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ic_number"
-                app:srcCompat="@drawable/img_email"
-                app:tint="#979797" />
+                <ImageView
+                    android:id="@+id/ic_number"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="40dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ic_name"
+                    app:srcCompat="@drawable/img_call"
+                    app:tint="#979797" />
 
-            <ImageView
-                android:id="@+id/ic_address"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ic_mail"
-                app:srcCompat="@drawable/img_address"
-                app:tint="#979797" />
+                <ImageView
+                    android:id="@+id/ic_mail"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="40dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ic_number"
+                    app:srcCompat="@drawable/img_email"
+                    app:tint="#979797" />
 
-            <ImageView
-                android:id="@+id/ic_birth"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ic_address"
-                app:srcCompat="@drawable/img_birth"
-                app:tint="#979797" />
+                <ImageView
+                    android:id="@+id/ic_address"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="40dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ic_mail"
+                    app:srcCompat="@drawable/img_address"
+                    app:tint="#979797" />
 
-            <ImageView
-                android:id="@+id/ic_memo"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ic_birth"
-                app:srcCompat="@drawable/img_memo"
-                app:tint="#979797" />
+                <ImageView
+                    android:id="@+id/ic_birth"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="40dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ic_address"
+                    app:srcCompat="@drawable/img_birth"
+                    app:tint="#979797" />
 
-            <TextView
-                android:id="@+id/tx_name"
-                style="@style/MypageTextStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:text="내배캠"
-                app:layout_constraintBottom_toBottomOf="@+id/ic_name"
-                app:layout_constraintStart_toEndOf="@+id/ic_name"
-                app:layout_constraintTop_toTopOf="@+id/ic_name" />
+                <ImageView
+                    android:id="@+id/ic_memo"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="40dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ic_birth"
+                    app:srcCompat="@drawable/img_memo"
+                    app:tint="#979797" />
 
-            <TextView
-                android:id="@+id/tx_number"
-                style="@style/MypageTextStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:text="010-1212-1234"
-                app:layout_constraintBottom_toBottomOf="@+id/ic_number"
-                app:layout_constraintStart_toEndOf="@+id/ic_number"
-                app:layout_constraintTop_toTopOf="@+id/ic_number" />
+                <TextView
+                    android:id="@+id/tx_name"
+                    style="@style/MypageTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="이론 머스크"
+                    app:layout_constraintBottom_toBottomOf="@+id/ic_name"
+                    app:layout_constraintStart_toEndOf="@+id/ic_name"
+                    app:layout_constraintTop_toTopOf="@+id/ic_name" />
 
-            <TextView
-                android:id="@+id/tx_email"
-                style="@style/MypageTextStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:text="adsf@gmail.com"
-                app:layout_constraintBottom_toBottomOf="@+id/ic_mail"
-                app:layout_constraintStart_toEndOf="@+id/ic_mail"
-                app:layout_constraintTop_toTopOf="@+id/ic_mail" />
+                <TextView
+                    android:id="@+id/tx_number"
+                    style="@style/MypageTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="010-1212-1234"
+                    app:layout_constraintBottom_toBottomOf="@+id/ic_number"
+                    app:layout_constraintStart_toEndOf="@+id/ic_number"
+                    app:layout_constraintTop_toTopOf="@+id/ic_number" />
 
-            <TextView
-                android:id="@+id/tx_address"
-                style="@style/MypageTextStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:text="서울시 ㅇㅇ구 ㅇㅇ동 464-4 1201동 2402호"
-                app:layout_constraintBottom_toBottomOf="@+id/ic_address"
-                app:layout_constraintStart_toEndOf="@+id/ic_address"
-                app:layout_constraintTop_toTopOf="@+id/ic_address" />
+                <TextView
+                    android:id="@+id/tx_email"
+                    style="@style/MypageTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="adsf@gmail.com"
+                    app:layout_constraintBottom_toBottomOf="@+id/ic_mail"
+                    app:layout_constraintStart_toEndOf="@+id/ic_mail"
+                    app:layout_constraintTop_toTopOf="@+id/ic_mail" />
 
-            <TextView
-                android:id="@+id/tx_birth"
-                style="@style/MypageTextStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:text="00년 00월 00일"
-                app:layout_constraintBottom_toBottomOf="@+id/ic_birth"
-                app:layout_constraintStart_toEndOf="@+id/ic_birth"
-                app:layout_constraintTop_toTopOf="@+id/ic_birth" />
+                <TextView
+                    android:id="@+id/tx_address"
+                    style="@style/MypageTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="서울시 ㅇㅇ구 ㅇㅇ동 464-4 \n 1201동 2402호"
+                    app:layout_constraintBottom_toBottomOf="@+id/ic_address"
+                    app:layout_constraintStart_toEndOf="@+id/ic_address"
+                    app:layout_constraintTop_toTopOf="@+id/ic_address" />
 
-            <TextView
-                android:id="@+id/tx_memo"
-                style="@style/MypageTextStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:lineSpacingExtra="5dp"
-                android:text="asdkfjaskldfjkasdjfklasjdflk\nasdfajshdfajsdk\nasdkfjaslkdfj"
-                app:layout_constraintStart_toEndOf="@+id/ic_memo"
-                app:layout_constraintTop_toTopOf="@+id/ic_memo" />
+                <TextView
+                    android:id="@+id/tx_birth"
+                    style="@style/MypageTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="12월 25일"
+                    app:layout_constraintBottom_toBottomOf="@+id/ic_birth"
+                    app:layout_constraintStart_toEndOf="@+id/ic_birth"
+                    app:layout_constraintTop_toTopOf="@+id/ic_birth" />
+
+                <TextView
+                    android:id="@+id/tx_memo"
+                    style="@style/MypageTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="-10dp"
+                    android:lineSpacingExtra="10dp"
+                    android:text="출근하기싫다. \n월루하고싶다 \n꿀 빨고 싶다."
+                    app:layout_constraintStart_toEndOf="@+id/ic_memo"
+                    app:layout_constraintTop_toTopOf="@+id/ic_memo" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

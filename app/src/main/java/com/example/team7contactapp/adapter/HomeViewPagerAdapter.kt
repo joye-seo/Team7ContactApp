@@ -6,7 +6,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.team7contactapp.home.ContactFragment
 import com.example.team7contactapp.home.KeypadFragment
 import com.example.team7contactapp.home.MyPageFragment
-import com.example.team7contactapp.home.RecordFragment
+import com.example.team7contactapp.home.HistoryFragment
 
 class HomeViewPagerAdapter(fm: FragmentActivity) : FragmentStateAdapter(fm) {
     override fun getItemCount(): Int = 4
@@ -15,7 +15,7 @@ class HomeViewPagerAdapter(fm: FragmentActivity) : FragmentStateAdapter(fm) {
         return when (position) {
             0 -> ContactFragment()
             1 -> KeypadFragment()
-            2 -> RecordFragment()
+            2 -> HistoryFragment()
             else -> MyPageFragment()
         }
     }
