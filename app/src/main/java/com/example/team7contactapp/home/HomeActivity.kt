@@ -12,6 +12,7 @@ class HomeActivity : AppCompatActivity() {
     private val binding by lazy {
         ActivityHomeBinding.inflate(layoutInflater)
     }
+
     private lateinit var mHomeViewPagerAdapter: HomeViewPagerAdapter
     private lateinit var contactFragment: ContactFragment
     private lateinit var keypadFragment: KeypadFragment
@@ -56,7 +57,7 @@ class HomeActivity : AppCompatActivity() {
             selectedItemId = R.id.btn_keypad
         }
         //아이템 클릭? 시 선택된 컬러
-//        binding.bottomNav.itemActiveIndicatorColor = null
+        binding.bottomNav.itemActiveIndicatorColor = null
     }
 
 }

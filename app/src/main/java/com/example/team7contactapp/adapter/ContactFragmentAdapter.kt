@@ -24,7 +24,8 @@ class ContactFragmentAdapter(val mItems: MutableList<MyItem>) : RecyclerView.Ada
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        holder.itemView.setOnClickListener {  //클릭이벤트추가부분
+        holder.itemView.setOnClickListener {
+            //클릭이벤트추가부분
             val context = holder.itemView.context
             val intent = Intent(context, ContactDetailActivity::class.java)
             intent.putExtra("position", position)
