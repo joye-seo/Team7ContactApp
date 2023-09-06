@@ -1,11 +1,13 @@
 package com.example.team7contactapp.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.team7contactapp.ContactDetailActivity
 import com.example.team7contactapp.R
 import com.example.team7contactapp.adapter.ContactFragmentAdapter
 import com.example.team7contactapp.data.MyItem
@@ -18,7 +20,6 @@ class ContactFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -55,7 +56,6 @@ class ContactFragment : Fragment() {
         val adapter = ContactFragmentAdapter(dataList)
         binding.recyclerview.adapter = adapter
         binding.recyclerview.layoutManager = LinearLayoutManager(context)
-
 
     }
 
