@@ -25,9 +25,9 @@ class ContactFragmentAdapter(val mItems: MutableList<MyItem>) : RecyclerView.Ada
         holder.itemView.setOnClickListener {  //클릭이벤트추가부분
             itemClick?.onClick(it, position)
         }
-        holder.iconImageView.setImageResource(mItems[position].aIcon)
-        holder.name.text = mItems[position].aName
-        holder.Favorite.setImageResource(mItems[position].aFavorite)
+        holder.iconImageView.setImageResource(mItems[position].icon)
+        holder.name.text = mItems[position].name
+        holder.Favorite.setImageResource(mItems[position].favorite)
     }
 
     override fun getItemId(position: Int): Long {
