@@ -19,7 +19,7 @@
 
 
         <!--가로 0dp > parent로 수정, 높이 0dp : percent로 수정, scaleType추가-->
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_profile"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -41,7 +41,7 @@
 
 
         <!--크기조정, 색 조정, 위치조정-->
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_pen"
             android:layout_width="30dp"
             android:layout_height="30dp"
@@ -52,8 +52,8 @@
             app:layout_constraintTop_toTopOf="@+id/iv_profile"
             app:tint="@color/white" />
 
-        <ImageView
-            android:id="@+id/imageView8"
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ic_back"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_margin="20dp"
@@ -64,7 +64,7 @@
             app:tint="@color/white" />
 
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_margin="15dp"
@@ -74,7 +74,7 @@
 
 
         <!--크기조정,위치조정,색감조정-->
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_call"
             android:layout_width="30dp"
             android:layout_height="30dp"
@@ -87,7 +87,7 @@
             app:tint="@color/white" />
 
         <!--크기조정,위치조정,색감조정-->
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_email"
             android:layout_width="30dp"
             android:layout_height="30dp"
@@ -110,7 +110,7 @@
             app:layout_constraintTop_toBottomOf="@+id/iv_profile">
 
             <!--이미지뷰로 변경-->
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/tv_name"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
@@ -130,7 +130,7 @@
                 app:layout_constraintStart_toEndOf="@+id/tv_name"
                 app:layout_constraintTop_toTopOf="@+id/tv_name" />
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/tv_contact"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
@@ -152,7 +152,7 @@
                 app:layout_constraintTop_toTopOf="@+id/tv_contact" />
 
             <!--이메일추가-->
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/tv_mail"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
@@ -161,20 +161,20 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_contact"
                 app:srcCompat="@drawable/img_email"
                 app:tint="#979797" />
-<!--이메일텍스트칸추가-->
+            <!--이메일텍스트칸추가-->
             <TextView
                 android:id="@+id/tv_mailinfo"
+                style="@style/MypageTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/MypageTextStyle"
-                android:text="choco77@gmail.com"
                 android:layout_marginStart="20dp"
+                android:text="choco77@gmail.com"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_mail"
                 app:layout_constraintStart_toEndOf="@+id/tv_mail"
                 app:layout_constraintTop_toTopOf="@+id/tv_mail" />
 
             <!--주소이미지아이콘변경-->
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/tv_address"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
@@ -185,7 +185,7 @@
                 app:tint="#979797" />
 
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/tv_birth"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
@@ -200,8 +200,8 @@
                 style="@style/MypageTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="생일비밀"
                 android:layout_marginStart="20dp"
+                android:text="생일비밀"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_birth"
                 app:layout_constraintStart_toEndOf="@+id/tv_birth"
                 app:layout_constraintTop_toTopOf="@+id/tv_birth" />
@@ -211,13 +211,13 @@
                 style="@style/MypageTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="주소비밀"
                 android:layout_marginStart="20dp"
+                android:text="주소비밀"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_address"
                 app:layout_constraintStart_toEndOf="@+id/tv_address"
                 app:layout_constraintTop_toTopOf="@+id/tv_address" />
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/tv_memo"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
@@ -232,9 +232,9 @@
                 style="@style/MypageTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="메모\n메모메모\n가나다라마바사"
-                android:layout_marginTop="-10dp"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="-10dp"
+                android:text="메모\n메모메모\n가나다라마바사"
                 app:layout_constraintStart_toEndOf="@+id/tv_memo"
                 app:layout_constraintTop_toTopOf="@+id/tv_memo" />
 
