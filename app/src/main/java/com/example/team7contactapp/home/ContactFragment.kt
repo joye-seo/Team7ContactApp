@@ -33,7 +33,6 @@ class ContactFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         //여기서부터 작업
         //데이터 원본준비
-
         val adapter = ContactFragmentAdapter(dataList)
         binding.recyclerview.adapter = adapter
         binding.recyclerview.layoutManager = LinearLayoutManager(context)

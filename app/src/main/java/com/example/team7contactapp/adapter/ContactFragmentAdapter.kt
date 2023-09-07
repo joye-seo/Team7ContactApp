@@ -40,6 +40,7 @@ class ContactFragmentAdapter(val mItems: MutableList<MyItem>) : RecyclerView.Ada
         fun bind(item: MyItem) {
             binding.itemProfile.setImageResource(item.icon)
             binding.itemUserName.text = item.name
+            binding.itemFavoriteYellow
 
             itemView.setOnClickListener {
                 val myIntent = Intent(itemView.context, ContactDetailActivity::class.java)
