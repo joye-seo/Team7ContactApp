@@ -7,6 +7,8 @@ import com.example.team7contactapp.databinding.ActivityContactDetailBinding
 
 class ContactDetailActivity : AppCompatActivity() {
 
+    private var isLike = false
+
     private lateinit var binding: ActivityContactDetailBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityContactDetailBinding.inflate(layoutInflater)
@@ -23,6 +25,21 @@ class ContactDetailActivity : AppCompatActivity() {
         binding.tvBirthinfo.text = testList?.birth
         binding.tvAddressinfo.text = testList?.address
         binding.tvMemoinfo.text = testList?.memo
+
+//        binding.activityContactDetailStar.setImageResource(if (isLike) {R.drawable.img_bookmarkon}else{R.drawable.img_bookmarkoff})
+
+        binding.activityContactDetailStar.setOnClickListener{
+
+            if(!isLike){
+                binding.activityContactDetailStar.setImageResource(R.drawable.img_bookmarkon)
+                isLike = true
+            }
+            else{
+                binding.activityContactDetailStar.setImageResource(R.drawable.img_bookmarkoff)
+                isLike = false
+            }
+
+        }
 
     }
 }

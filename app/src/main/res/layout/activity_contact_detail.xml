@@ -64,16 +64,18 @@
             app:tint="@color/white" />
 
 
+        <!--크기조정,위치조정,색감조정-->
         <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/activity_contact_detail_star"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_margin="15dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="12dp"
             android:src="@drawable/staroff"
             app:layout_constraintBottom_toBottomOf="@+id/iv_profile"
             app:layout_constraintStart_toStartOf="parent" />
 
-
-        <!--크기조정,위치조정,색감조정-->
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_call"
             android:layout_width="30dp"
