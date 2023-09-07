@@ -17,203 +17,229 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+
+        <!--가로 0dp > parent로 수정, 높이 0dp : percent로 수정, scaleType추가-->
         <ImageView
             android:id="@+id/iv_profile"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/profile"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_dog"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!--그라데이션 상단 추가-->
         <View
-            android:id="@+id/view"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            app:layout_constraintBottom_toBottomOf="@+id/iv_profile" />
+            android:layout_height="100dp"
+            android:background="@drawable/gradient_overlay"
+            app:layout_constraintEnd_toEndOf="@+id/iv_profile"
+            app:layout_constraintStart_toStartOf="@+id/iv_profile"
+            app:layout_constraintTop_toTopOf="@+id/iv_profile" />
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="8dp"
-            android:src="@drawable/img_bookmarkon"
-            app:layout_constraintBottom_toBottomOf="@+id/iv_profile"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/view" />
 
-        <ImageView
-            android:id="@+id/iv_call"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/img_call"
-            app:layout_constraintBottom_toBottomOf="@+id/iv_profile"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.703"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/view" />
-
-        <ImageView
-            android:id="@+id/iv_email"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="8dp"
-            android:src="@drawable/img_email"
-            app:layout_constraintBottom_toBottomOf="@+id/iv_profile"
-            app:layout_constraintStart_toEndOf="@+id/iv_call"
-            app:layout_constraintTop_toTopOf="@+id/view" />
-
+        <!--크기조정, 색 조정, 위치조정-->
         <ImageView
             android:id="@+id/iv_pen"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="30dp"
+            android:alpha="0.5"
+            android:src="@drawable/img_pen"
+            app:layout_constraintEnd_toEndOf="@id/iv_profile"
+            app:layout_constraintTop_toTopOf="@+id/iv_profile"
+            app:tint="@color/white" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="20dp"
+            android:alpha="0.5"
+            android:src="@drawable/back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white" />
+
+
+        <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginStart="8dp"
-            android:src="@drawable/img_pen"
+            android:layout_margin="15dp"
+            android:src="@drawable/staroff"
             app:layout_constraintBottom_toBottomOf="@+id/iv_profile"
-            app:layout_constraintStart_toEndOf="@+id/iv_email"
-            app:layout_constraintTop_toTopOf="@+id/view" />
+            app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_name"
+
+        <!--크기조정,위치조정,색감조정-->
+        <ImageView
+            android:id="@+id/iv_call"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="30dp"
+            android:alpha="0.5"
+            android:src="@drawable/img_call"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_email"
+            app:layout_constraintEnd_toStartOf="@+id/iv_email"
+            app:layout_constraintTop_toTopOf="@+id/iv_email"
+            app:tint="@color/white" />
+
+        <!--크기조정,위치조정,색감조정-->
+        <ImageView
+            android:id="@+id/iv_email"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="30dp"
+            android:alpha="0.5"
+            android:src="@drawable/img_email"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_pen"
+            app:layout_constraintEnd_toStartOf="@+id/iv_pen"
+            app:layout_constraintTop_toTopOf="@+id/iv_pen"
+            app:tint="@color/white" />
+
+
+        <!--        정보내용 감싸는 레이아웃 추가-->
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:text="이름"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="bold"
+            android:padding="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_profile" />
+            app:layout_constraintTop_toBottomOf="@+id/iv_profile">
 
-        <TextView
-            android:id="@+id/tv_nameinfo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:text="가나다"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+            <!--이미지뷰로 변경-->
+            <ImageView
+                android:id="@+id/tv_name"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/img_user"
+                app:tint="#979797" />
 
-        <TextView
-            android:id="@+id/tv_contact"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:text="연락처"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_nameinfo" />
+            <TextView
+                android:id="@+id/tv_nameinfo"
+                style="@style/MypageTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="가나다"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_name"
+                app:layout_constraintStart_toEndOf="@+id/tv_name"
+                app:layout_constraintTop_toTopOf="@+id/tv_name" />
 
-        <TextView
-            android:id="@+id/tv_contactinfo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:text="010-1234-5678"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_contact" />
+            <ImageView
+                android:id="@+id/tv_contact"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="40dp"
+                app:layout_constraintStart_toStartOf="@+id/tv_name"
+                app:layout_constraintTop_toBottomOf="@+id/tv_name"
+                app:srcCompat="@drawable/img_call"
+                app:tint="#979797" />
 
-        <TextView
-            android:id="@+id/tv_birth"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:text="생일"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_contactinfo" />
+            <TextView
+                android:id="@+id/tv_contactinfo"
+                style="@style/MypageTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="010-1234-5678"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_contact"
+                app:layout_constraintStart_toEndOf="@+id/tv_contact"
+                app:layout_constraintTop_toTopOf="@+id/tv_contact" />
 
-        <TextView
-            android:id="@+id/tv_birthinfo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:text="비밀"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_birth" />
+            <!--이메일추가-->
+            <ImageView
+                android:id="@+id/tv_mail"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_contact"
+                app:srcCompat="@drawable/img_email"
+                app:tint="#979797" />
+<!--이메일텍스트칸추가-->
+            <TextView
+                android:id="@+id/tv_mailinfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/MypageTextStyle"
+                android:text="choco77@gmail.com"
+                android:layout_marginStart="20dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_mail"
+                app:layout_constraintStart_toEndOf="@+id/tv_mail"
+                app:layout_constraintTop_toTopOf="@+id/tv_mail" />
 
-        <TextView
-            android:id="@+id/tv_address"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:text="주소"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_birthinfo" />
+            <!--주소이미지아이콘변경-->
+            <ImageView
+                android:id="@+id/tv_address"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_mail"
+                app:srcCompat="@drawable/img_address"
+                app:tint="#979797" />
 
-        <TextView
-            android:id="@+id/tv_addressinfo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:text="비밀"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_address" />
 
-        <TextView
-            android:id="@+id/tv_memo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:text="메모"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_addressinfo" />
+            <ImageView
+                android:id="@+id/tv_birth"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_address"
+                app:srcCompat="@drawable/img_birth"
+                app:tint="#979797" />
 
-        <TextView
-            android:id="@+id/tv_memoinfo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:text="가나다라마바사"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_memo" />
+            <TextView
+                android:id="@+id/tv_birthinfo"
+                style="@style/MypageTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="생일비밀"
+                android:layout_marginStart="20dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_birth"
+                app:layout_constraintStart_toEndOf="@+id/tv_birth"
+                app:layout_constraintTop_toTopOf="@+id/tv_birth" />
+
+            <TextView
+                android:id="@+id/tv_addressinfo"
+                style="@style/MypageTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="주소비밀"
+                android:layout_marginStart="20dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_address"
+                app:layout_constraintStart_toEndOf="@+id/tv_address"
+                app:layout_constraintTop_toTopOf="@+id/tv_address" />
+
+            <ImageView
+                android:id="@+id/tv_memo"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_birth"
+                app:srcCompat="@drawable/img_memo"
+                app:tint="#979797" />
+
+            <TextView
+                android:id="@+id/tv_memoinfo"
+                style="@style/MypageTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="메모\n메모메모\n가나다라마바사"
+                android:layout_marginTop="-10dp"
+                android:layout_marginStart="20dp"
+                app:layout_constraintStart_toEndOf="@+id/tv_memo"
+                app:layout_constraintTop_toTopOf="@+id/tv_memo" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
