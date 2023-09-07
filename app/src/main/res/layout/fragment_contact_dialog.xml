@@ -61,7 +61,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edt_name"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60dp"
                     android:hint="이름"
                     android:maxLines="1"
                     android:textSize="16sp" />
@@ -101,7 +101,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edt_number"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60dp"
                     android:hint="연락처"
                     android:maxLines="1"
                     android:textSize="16sp" />
