@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.team7contactapp.ContactDetailActivity
+import com.example.team7contactapp.R
 import com.example.team7contactapp.data.MyItem
 import com.example.team7contactapp.data.User
 import com.example.team7contactapp.databinding.ItemContactBinding
@@ -38,7 +39,7 @@ class ContactFragmentAdapter(val mItems: MutableList<MyItem>) : RecyclerView.Ada
 
     inner class Holder(val binding: ItemContactBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: MyItem) {
-            binding.itemProfile.setImageResource(item.icon)
+            binding.itemProfile.setImageResource(item.icon ?: R.drawable.donghyun)
             binding.itemUserName.text = item.name
             binding.itemFavoriteYellow
 
