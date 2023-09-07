@@ -3,11 +3,19 @@ package com.example.team7contactapp
 import android.app.DatePickerDialog
 import android.app.Dialog
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import androidx.fragment.app.DialogFragment
+import androidx.recyclerview.widget.RecyclerView
+import com.example.team7contactapp.adapter.ContactFragmentAdapter
+import com.example.team7contactapp.data.ContactManager
+import com.example.team7contactapp.data.MyItem
+import com.example.team7contactapp.data.User
+import com.example.team7contactapp.data.User.dataList
 import com.example.team7contactapp.databinding.FragmentContactDialogBinding
 import java.util.Calendar
 
@@ -45,7 +53,7 @@ class ContactDialogFragment : DialogFragment() {
             dismiss()
         }
         btnSave.setOnClickListener {
-
+            userData()
         }
         btnMore.setOnClickListener {
             layoutMore.visibility = View.VISIBLE
@@ -76,6 +84,22 @@ class ContactDialogFragment : DialogFragment() {
         )
 
         datePickerDialog.show()
+    }
+
+    private fun userData() = with(binding) {
+        val name = edtName.text.toString()
+        val number = edtNumber.text.toString()
+        val email = edtEmail.text.toString()
+        val user = MyItem(null, name, number, false, "", "", "")
+
+//        val bundle = Bundle()
+//        bundle.putParcelable("data", user)
+//        ContactFragment().arguments = bundle
+//        edtAddress
+//        edtBirth
+//        edtMemo
+        ContactManager.addContact(user)
+        dismiss()
     }
 
 

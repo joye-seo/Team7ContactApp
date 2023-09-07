@@ -37,15 +37,16 @@ class ContactFragmentAdapter(val mItems: MutableList<MyItem>) : RecyclerView.Ada
         return mItems.size
     }
 
+
     inner class Holder(val binding: ItemContactBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: MyItem) {
-            binding.itemProfile.setImageResource(item.icon ?: R.drawable.donghyun)
+            binding.itemProfile.setImageResource(item.icon ?: R.drawable.profiles)
             binding.itemUserName.text = item.name
             binding.itemFavoriteYellow
 
             itemView.setOnClickListener {
                 val myIntent = Intent(itemView.context, ContactDetailActivity::class.java)
-                myIntent.putExtra("Data", User.dataList[position])
+                myIntent.putExtra("Data", User.dataList[adapterPosition])
                 itemView.context.startActivity(myIntent)
             }
         }

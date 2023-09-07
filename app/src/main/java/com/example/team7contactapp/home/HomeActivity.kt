@@ -36,6 +36,7 @@ class HomeActivity : AppCompatActivity() {
                 bottomNav.menu.getItem(position).isChecked = true
             }
         })
+
     }
 
     private fun initBottomNav() = with(binding) {

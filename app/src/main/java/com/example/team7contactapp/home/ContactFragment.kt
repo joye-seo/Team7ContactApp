@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.team7contactapp.ContactDialogFragment
 import com.example.team7contactapp.adapter.ContactFragmentAdapter
+import com.example.team7contactapp.data.ContactManager
 import com.example.team7contactapp.data.User.dataList
 import com.example.team7contactapp.databinding.FragmentContactBinding
 
@@ -26,6 +27,7 @@ class ContactFragment : Fragment() {
         _binding = FragmentContactBinding.inflate(inflater, container, false)
         val view = binding.root
         return view  //End
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -33,10 +35,11 @@ class ContactFragment : Fragment() {
         //여기서부터 작업
         //데이터 원본준비
         val adapter = ContactFragmentAdapter(dataList)
+        dataList.sortBy { it.name }
         binding.recyclerview.adapter = adapter
         binding.recyclerview.layoutManager = LinearLayoutManager(context)
-
         contactAdd()
+
     }
 
     private fun contactAdd() {

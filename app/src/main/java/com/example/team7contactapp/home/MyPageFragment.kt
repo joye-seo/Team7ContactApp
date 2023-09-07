@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import com.example.team7contactapp.ContactDialogFragment
 import com.example.team7contactapp.R
 import com.example.team7contactapp.databinding.FragmentKeypadBinding
 import com.example.team7contactapp.databinding.FragmentMyPageBinding
@@ -46,10 +48,21 @@ class MyPageFragment : Fragment() {
             val shareIntent = Intent.createChooser(sendIntent, null)
             startActivity(shareIntent)
         }
+
+        binding.icModify.setOnClickListener {
+
+            loadFragment()
+        }
     }
 
     //▲위 내용은, 에뮬 구동시, 구글 로그인 해놔야, 메일 전송으로 바로 내용 복사되어 보낼수 있음.
     // 발표시 참고하기 !
+
+    private fun loadFragment() {
+        val fragmentManager = requireActivity().supportFragmentManager
+        val newFragment = ContactDialogFragment()
+        newFragment.show(fragmentManager, "ContactDialogFragment")
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
