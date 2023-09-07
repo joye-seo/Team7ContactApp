@@ -16,7 +16,7 @@
 
             <!--내 사진 들어갈곳-->
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/img_myimage"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -36,7 +36,7 @@
                 app:layout_constraintTop_toTopOf="@+id/img_myimage" />
 
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/ic_share"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
@@ -48,7 +48,7 @@
                 app:srcCompat="@drawable/img_share"
                 app:tint="@color/white" />
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/ic_modify"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
@@ -64,13 +64,12 @@
                 android:id="@+id/info_box"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:padding="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/img_myimage"
-                android:padding="20dp"
-                >
+                app:layout_constraintTop_toBottomOf="@+id/img_myimage">
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ic_name"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
@@ -80,7 +79,7 @@
                     app:srcCompat="@drawable/img_user"
                     app:tint="#979797" />
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ic_number"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
@@ -90,7 +89,7 @@
                     app:srcCompat="@drawable/img_call"
                     app:tint="#979797" />
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ic_mail"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
@@ -100,7 +99,7 @@
                     app:srcCompat="@drawable/img_email"
                     app:tint="#979797" />
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ic_address"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
@@ -110,7 +109,7 @@
                     app:srcCompat="@drawable/img_address"
                     app:tint="#979797" />
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ic_birth"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
@@ -120,7 +119,7 @@
                     app:srcCompat="@drawable/img_birth"
                     app:tint="#979797" />
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ic_memo"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
