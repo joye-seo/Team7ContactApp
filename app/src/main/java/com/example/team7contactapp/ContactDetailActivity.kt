@@ -17,12 +17,12 @@ class ContactDetailActivity : AppCompatActivity() {
         var testList = intent.getParcelableExtra<MyItem>("Data")
 
         //DetailActivity 와 parcelable데이터를 연결시켜줌
-        binding.tvName.text = testList?.name
+        binding.ivProfile.setImageResource(testList?.icon?: R.drawable.profiles)
+        binding.tvNameinfo.text = testList?.name
+        binding.tvContactinfo.text = testList?.contact
+        binding.tvBirthinfo.text = testList?.birth
+        binding.tvAddressinfo.text = testList?.address
+        binding.tvMemoinfo.text = testList?.memo
 
-
-        val position = intent.getIntExtra("position", -1)
-        val icon = intent.getIntExtra("aIcon", R.id.item_profile)
-        val name = intent.getStringExtra("aName")
-        val favorite = intent.getIntExtra("aFavorite", R.id.item_favorite_yellow)
     }
 }
