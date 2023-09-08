@@ -12,6 +12,8 @@ class NameAdapter(
      private val listener : NameItemClickListener
     ) :  RecyclerView.Adapter<NameAdapter.CustomViewHolder>()
 {
+
+
     interface NameItemClickListener {
         fun  onItemClick(name : Names , position: Int)
     }
@@ -37,6 +39,7 @@ class NameAdapter(
         // 아이템의 상태를 기반으로 가시성 설정
         holder.phoneNumber.visibility = if (currentItem.isExpanded) View.VISIBLE else View.GONE
         holder.infoTxt.visibility = if (currentItem.isExpanded) View.VISIBLE else View.GONE
+
 
         // 항목의 내용을 Names 객체의 데이터로 설정
         holder.phoneNumber.text = currentItem.phoneNumber  // 전화번호 설정

@@ -12,7 +12,11 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.example.team7contactapp.databinding.FragmentKeypadBinding
 import android.Manifest
+import android.app.AlertDialog
 import android.view.Gravity
+import android.widget.ArrayAdapter
+import android.widget.ImageView
+import com.example.team7contactapp.R
 
 class KeypadFragment : Fragment() {
     companion object {
@@ -104,6 +108,40 @@ class KeypadFragment : Fragment() {
             numberShop3.setOnClickListener { appendNumber("#") }
 
 
+            viveoCall.setOnClickListener {
+                val callOptions = arrayOf("영상통화", "Meet")
+                val images = listOf(R.drawable.ic_blue_call,R.drawable.ic_computer_call)
+
+                val adapter = object : ArrayAdapter<String>(requireContext(), R.layout.custom_dialog_item, R.id.text, callOptions) {
+                    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+                        val view = super.getView(position, convertView, parent)
+                        val imageView = view.findViewById<ImageView>(R.id.callImage)
+                        imageView.setImageResource(images[position])
+                        return view
+                    }
+                }
+
+                val  alertDialog = AlertDialog.Builder(context)
+
+                    .setAdapter(adapter) { dialog, which ->
+                        when (which) {
+                            0 -> {
+                                // 영상통화 선택 시 실행할 코드
+                                Toast.makeText(context, "영상통화", Toast.LENGTH_SHORT).show()
+                            }
+
+                            1 -> {
+                                // Meet 선택 시 실행할 코드
+                                Toast.makeText(context, "Meet", Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                    }
+                    .create()
+                alertDialog.show()
+            }  //영상통화 버튼 클릭시 Dialog 이벤트 발생
+
+
+
             closeBtn.setOnClickListener {
                 removeLastCharacter()      //숫자를 하나씩 제거하는 함수 실행
             }
@@ -127,6 +165,20 @@ class KeypadFragment : Fragment() {
 
 
     }  //숫자 클릭 이벤트
+
+    private fun updateButtonVisibility() {
+        val length = binding.numberTxt.text.toString().replace("-", "").length
+        if (length > 0) {
+            binding.closeBtn.visibility = View.VISIBLE
+            binding.viveoCall.visibility = View.VISIBLE
+        } else {
+            binding.closeBtn.visibility = View.GONE
+            binding.viveoCall.visibility = View.GONE
+        }
+    }  //숫자 입력시에만 이미지가 보이게 함수만듬
+
+
+
 
 
     private fun makeCall(number: String) {
@@ -163,19 +215,25 @@ class KeypadFragment : Fragment() {
     }  // 사용자가 요청된 권한을 부여 하거나 거부 할때 사용 하는 콜백 전화 통화 권한을 부여 하면 전화 통화 시작 , 거부시 토스트 메세지
 
     private fun removeLastCharacter() {
+
+
         val  currenText = binding.numberTxt.text.toString()
         if (currenText.isNotEmpty()) {
             binding.numberTxt.text = currenText.substring(0,currenText.length - 1)
         }
+
+        updateButtonVisibility()
     }   // 숫자를 하나씩 제거 하는 함수 실행  = text가 비어 있지 않으면 텍스트 - 1칸을 삭제함.
 
     private fun clearAllText() {
         binding.numberTxt.text = ""
+        updateButtonVisibility()
     }  //숫자를 전부 제거하는 함수 실행 = 전부 제거
 
 
 
     private fun appendNumber(s: String) {
+
 
         val currentText = binding.numberTxt.text.toString()
 
@@ -185,6 +243,9 @@ class KeypadFragment : Fragment() {
             3,7->binding.numberTxt.text="$currentText-$s"
             else->binding.numberTxt.text=currentText+s
         }
+
+        updateButtonVisibility()
+
     }  // text에 클릭한 숫자 출력 , 3번째숫자 뒤 ,7번째숫자 뒤 - 표시
 
 
