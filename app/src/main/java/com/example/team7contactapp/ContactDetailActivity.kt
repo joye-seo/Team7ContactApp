@@ -29,7 +29,7 @@ class ContactDetailActivity : AppCompatActivity() {
 //        binding.activityContactDetailStar.setImageResource(if (isLike) {R.drawable.img_bookmarkon}else{R.drawable.img_bookmarkoff})
 
         binding.activityContactDetailStar.setOnClickListener{
-
+//        isLike 를 전역변수로 선언한뒤  true면 노란별이 false면 하얀별이 들어오도록 설정
             if(!isLike){
                 binding.activityContactDetailStar.setImageResource(R.drawable.img_bookmarkon)
                 isLike = true
