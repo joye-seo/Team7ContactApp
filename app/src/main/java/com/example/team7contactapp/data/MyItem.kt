@@ -16,13 +16,13 @@ object User {
         MyItem(R.drawable.profiles, "정용현", "010-2345-6789", false, "서울시 강동구", "1월23일", "OOP 마스터입니다"),
         MyItem(R.drawable.profiles, "김에디", "010-3456-7890", false, "부산시 동구", "3월25일", "리싸이클러뷰 중요해요"),
         MyItem(R.drawable.profiles, "박에디", "010-4567-8901", false, "부산시 남구", "5월1일", "리싸이클러뷰 중요해요"),
-        MyItem(R.drawable.profiles, "권상우", "010-5678-9012", false, "강남구 압구정동", "3월3일", "옥땅으로 따라와"),
-        MyItem(R.drawable.profiles, "박재범", "010-6789-0123", false, "강북구 한남동", "4월1일", "봉준호 손흥민 bts jpark"),
-        MyItem(R.drawable.profiles, "정우성", "010-7890-1234", false, "목포시 하당동", "5월4일", "잘생긴게 짱이에요"),
-        MyItem(R.drawable.profiles, "장원영", "010-8901-2345", false, "강남구 압구정동", "6월6일", "숨참고 love dive"),
-        MyItem(R.drawable.profiles, "강원기", "010-9012-3456", false, "판교 넥슨동", "7월7일", "용사님들 반갑습니다!"),
-        MyItem(R.drawable.profiles, "김창섭", "010-0123-4567", false, "판교 넥슨동", "8월8일", "신규 디렉터 김창섭입니다"),
-        MyItem(R.drawable.profiles, "박진영", "010-2345-5678", false, "강남구 jyp동", "010-2345-5678", "난 여자가 있는데~")
+        MyItem(R.drawable.kwonsangwoo, "권상우", "010-5678-9012", false, "강남구 압구정동", "3월3일", "옥땅으로 따라와"),
+        MyItem(R.drawable.jpark, "박재범", "010-6789-0123", false, "강북구 한남동", "4월1일", "봉준호 손흥민 bts jpark"),
+        MyItem(R.drawable.jungwoosung, "정우성", "010-7890-1234", false, "목포시 하당동", "5월4일", "잘생긴게 짱이에요"),
+        MyItem(R.drawable.jangwonyoung, "장원영", "010-8901-2345", false, "강남구 압구정동", "6월6일", "숨참고 love dive"),
+        MyItem(R.drawable.kangwonki, "강원기", "010-9012-3456", false, "판교 넥슨동", "7월7일", "용사님들 반갑습니다!"),
+        MyItem(R.drawable.kimchangsub, "김창섭", "010-0123-4567", false, "판교 넥슨동", "8월8일", "신규 디렉터 김창섭입니다"),
+        MyItem(R.drawable.jyp, "박진영", "010-2345-5678", false, "강남구 jyp동", "010-2345-5678", "난 여자가 있는데~")
     )
 }
 
