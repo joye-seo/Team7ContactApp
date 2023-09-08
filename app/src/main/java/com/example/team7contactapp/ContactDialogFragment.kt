@@ -3,25 +3,21 @@ package com.example.team7contactapp
 import android.app.DatePickerDialog
 import android.app.Dialog
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import androidx.fragment.app.DialogFragment
-import androidx.recyclerview.widget.RecyclerView
-import com.example.team7contactapp.adapter.ContactFragmentAdapter
-import com.example.team7contactapp.data.ContactManager
 import com.example.team7contactapp.data.MyItem
-import com.example.team7contactapp.data.User
-import com.example.team7contactapp.data.User.dataList
 import com.example.team7contactapp.databinding.FragmentContactDialogBinding
 import java.util.Calendar
+
 
 class ContactDialogFragment : DialogFragment() {
     private var _binding: FragmentContactDialogBinding? = null
     private val binding get() = _binding!!
+
+    private var listener: AddItem? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -90,15 +86,13 @@ class ContactDialogFragment : DialogFragment() {
         val name = edtName.text.toString()
         val number = edtNumber.text.toString()
         val email = edtEmail.text.toString()
-        val user = MyItem(null, name, number, false, "", "", "")
+        val adress = edtAddress.text.toString()
+        val birth = edtBirth.text.toString()
+        val memo = edtMemo.text.toString()
 
-//        val bundle = Bundle()
-//        bundle.putParcelable("data", user)
-//        ContactFragment().arguments = bundle
-//        edtAddress
-//        edtBirth
-//        edtMemo
-        ContactManager.addContact(user)
+        val user = MyItem(null, name, number, false, adress, birth, memo)
+
+        listener?.add(user)
         dismiss()
     }
 
@@ -106,6 +100,14 @@ class ContactDialogFragment : DialogFragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    fun setListener(context: AddItem) {
+        listener = context
+    }
+
+    interface AddItem {
+        fun add(contact: MyItem)
     }
 
 }

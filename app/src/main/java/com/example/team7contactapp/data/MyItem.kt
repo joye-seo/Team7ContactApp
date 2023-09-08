@@ -2,11 +2,10 @@ package com.example.team7contactapp.data
 
 import android.os.Parcelable
 import com.example.team7contactapp.R
-import com.example.team7contactapp.adapter.ContactFragmentAdapter
 import kotlinx.parcelize.Parcelize
 
 object User {
-    val dataList = mutableListOf<MyItem>(
+    var dataList = mutableListOf<MyItem>(
         MyItem(R.drawable.donghyun, "윤동현", "", false, "", "", ""),
         MyItem(R.drawable.jinjoo, "황진주", "", false, "", "", ""),
         MyItem(R.drawable.profiles, "서수현", "", false, "", "", ""),
@@ -26,22 +25,7 @@ object User {
     )
 }
 
-object ContactManager {
-    private val list = User.dataList
-    private val adapter = ContactFragmentAdapter(list)
-    fun addContact(contact: MyItem) {
-        list.add(contact)
-        list.sortBy { it.name }
-        adapter.notifyDataSetChanged()
-    }
 
-
-    fun removeContact(contact: MyItem) {
-        list.remove(contact)
-    }
-
-
-}
 //010-3342-5943/"인천시 부평구"/"12월 32일"/프로젝트 화이팅
 
 @Parcelize
@@ -54,5 +38,4 @@ data class MyItem(
     val birth: String?,
     val memo: String?,
 ) : Parcelable {
-
 }
