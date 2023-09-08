@@ -12,17 +12,17 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.team7contactapp.ContactDialogFragment
 import com.example.team7contactapp.adapter.ContactFragmentAdapter
-import com.example.team7contactapp.data.ContactManager
 import com.example.team7contactapp.data.MyItem
 import com.example.team7contactapp.data.User.dataList
 import com.example.team7contactapp.databinding.FragmentContactBinding
 
-class ContactFragment : Fragment() {
+class ContactFragment : Fragment(), ContactDialogFragment.AddItem {
 
     private var _binding: FragmentContactBinding? = null //Start
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    val adapter = ContactFragmentAdapter(dataList)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,7 +37,6 @@ class ContactFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         //여기서부터 작업
         //데이터 원본준비
-        val adapter = ContactFragmentAdapter(dataList)
         dataList.sortBy { it.name }
         binding.recyclerview.adapter = adapter
         binding.recyclerview.layoutManager = LinearLayoutManager(context)
@@ -86,9 +85,16 @@ class ContactFragment : Fragment() {
         val fragmentManager = requireActivity().supportFragmentManager
         val newFragment = ContactDialogFragment()
         newFragment.show(fragmentManager, "ContactDialogFragment")
+        newFragment.setListener(this)
     }
-        override fun onDestroyView() {
-            super.onDestroyView()
-            _binding = null
-        }
+
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
+
+    override fun add(contact: MyItem) {
+        adapter.addList(contact)
+    }
+}

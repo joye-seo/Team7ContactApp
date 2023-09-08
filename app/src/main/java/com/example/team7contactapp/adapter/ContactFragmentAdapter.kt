@@ -2,7 +2,6 @@ package com.example.team7contactapp.adapter
 
 import android.content.Intent
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.team7contactapp.ContactDetailActivity
@@ -12,15 +11,14 @@ import com.example.team7contactapp.data.User
 import com.example.team7contactapp.databinding.ItemContactBinding
 
 
-class ContactFragmentAdapter(val mItems: MutableList<MyItem>) :
-    RecyclerView.Adapter<ContactFragmentAdapter.Holder>() {
+class ContactFragmentAdapter(var mItems: MutableList<MyItem>) : RecyclerView.Adapter<ContactFragmentAdapter.Holder>() {
 
-
-    interface ItemClick {
-        fun onClick(view: View, position: Int)
+    fun addList(contact: MyItem) {
+        mItems.add(contact)
+        mItems.sortBy { it.name }
+        notifyDataSetChanged()
     }
 
-    var itemClick: ItemClick? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val binding = ItemContactBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -39,6 +37,10 @@ class ContactFragmentAdapter(val mItems: MutableList<MyItem>) :
         return mItems.size
     }
 
+    override fun getItemViewType(position: Int): Int {
+        return super.getItemViewType(position)
+    }
+
 
     inner class Holder(val binding: ItemContactBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: MyItem) {
@@ -51,8 +53,10 @@ class ContactFragmentAdapter(val mItems: MutableList<MyItem>) :
                 myIntent.putExtra("Data", User.dataList[adapterPosition])
                 itemView.context.startActivity(myIntent)
             }
+            itemView.setOnLongClickListener {
 
-
+                true
+            }
         }
 
 
