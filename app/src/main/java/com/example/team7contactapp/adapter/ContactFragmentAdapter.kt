@@ -1,7 +1,6 @@
 package com.example.team7contactapp.adapter
 
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -23,13 +22,11 @@ class ContactFragmentAdapter(var mItems: MutableList<MyItem>) : RecyclerView.Ada
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val binding = ItemContactBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        Log.d("bind11112222", "")
         return Holder(binding)
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
         holder.bind(mItems[position])
-        Log.d("bind1111", position.toString())
     }
 
     override fun getItemId(position: Int): Long {
@@ -49,7 +46,6 @@ class ContactFragmentAdapter(var mItems: MutableList<MyItem>) : RecyclerView.Ada
         fun bind(item: MyItem) {
             binding.itemProfile.setImageResource(item.icon ?: R.drawable.profiles)
             binding.itemUserName.text = item.name
-            Log.d("bind111111111", item.name.toString())
             binding.itemFavoriteYellow
 
             itemView.setOnClickListener {

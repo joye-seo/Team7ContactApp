@@ -365,10 +365,11 @@
             android:layout_height="100dp">
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/viveoCall"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:src="@drawable/ic_video_call"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/callBtn"
                 app:layout_constraintStart_toStartOf="parent"
@@ -381,7 +382,7 @@
                 android:layout_height="60dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/closeBtn"
-                app:layout_constraintStart_toEndOf="@+id/imageView4"
+                app:layout_constraintStart_toEndOf="@+id/viveoCall"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_telephone" />
 
@@ -390,6 +391,7 @@
                 android:id="@+id/closeBtn"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/callBtn"
