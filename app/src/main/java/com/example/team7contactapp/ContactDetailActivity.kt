@@ -22,6 +22,7 @@ class ContactDetailActivity : AppCompatActivity() {
         binding.ivProfile.setImageResource(testList?.icon?: R.drawable.profiles)
         binding.tvNameinfo.text = testList?.name
         binding.tvContactinfo.text = testList?.contact
+        binding.tvMailinfo.text = testList?.emaill
         binding.tvBirthinfo.text = testList?.birth
         binding.tvAddressinfo.text = testList?.address
         binding.tvMemoinfo.text = testList?.memo
