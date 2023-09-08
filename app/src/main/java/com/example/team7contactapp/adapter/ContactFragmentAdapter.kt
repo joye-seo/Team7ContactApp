@@ -12,7 +12,9 @@ import com.example.team7contactapp.data.User
 import com.example.team7contactapp.databinding.ItemContactBinding
 
 
-class ContactFragmentAdapter(val mItems: MutableList<MyItem>) : RecyclerView.Adapter<ContactFragmentAdapter.Holder>() {
+class ContactFragmentAdapter(val mItems: MutableList<MyItem>) :
+    RecyclerView.Adapter<ContactFragmentAdapter.Holder>() {
+
 
     interface ItemClick {
         fun onClick(view: View, position: Int)
@@ -49,6 +51,8 @@ class ContactFragmentAdapter(val mItems: MutableList<MyItem>) : RecyclerView.Ada
                 myIntent.putExtra("Data", User.dataList[adapterPosition])
                 itemView.context.startActivity(myIntent)
             }
+
+
         }
 
 

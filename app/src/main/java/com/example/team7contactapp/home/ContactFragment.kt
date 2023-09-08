@@ -13,13 +13,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.team7contactapp.ContactDialogFragment
 import com.example.team7contactapp.adapter.ContactFragmentAdapter
 import com.example.team7contactapp.data.ContactManager
+import com.example.team7contactapp.data.MyItem
 import com.example.team7contactapp.data.User.dataList
 import com.example.team7contactapp.databinding.FragmentContactBinding
 
 class ContactFragment : Fragment() {
 
     private var _binding: FragmentContactBinding? = null //Start
-
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -43,24 +43,25 @@ class ContactFragment : Fragment() {
         binding.recyclerview.layoutManager = LinearLayoutManager(context)
         contactAdd()
 
-        val itemTouchHelperCallback = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT){
-            override fun onMove(
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder,
-                target: RecyclerView.ViewHolder
-            ): Boolean {
-                return false
-            }
+        val itemTouchHelperCallback =
+            object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
+                override fun onMove(
+                    recyclerView: RecyclerView,
+                    viewHolder: RecyclerView.ViewHolder,
+                    target: RecyclerView.ViewHolder
+                ): Boolean {
+                    return false
+                }
 
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                val position = viewHolder.adapterPosition
-                if (direction == ItemTouchHelper.RIGHT){
-                    if (hasCallPermission()){
-                        makeCall(dataList[position].contact)
+                override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                    val position = viewHolder.adapterPosition
+                    if (direction == ItemTouchHelper.RIGHT) {
+                        if (hasCallPermission()) {
+                            makeCall(dataList[position].contact)
+                        }
                     }
                 }
             }
-        }
         val itemTouchHelper = ItemTouchHelper(itemTouchHelperCallback)
         itemTouchHelper.attachToRecyclerView(binding.recyclerview)
     }
@@ -86,10 +87,8 @@ class ContactFragment : Fragment() {
         val newFragment = ContactDialogFragment()
         newFragment.show(fragmentManager, "ContactDialogFragment")
     }
-
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+        override fun onDestroyView() {
+            super.onDestroyView()
+            _binding = null
+        }
     }
-}
