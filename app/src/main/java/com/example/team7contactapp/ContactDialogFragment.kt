@@ -90,7 +90,7 @@ class ContactDialogFragment : DialogFragment() {
         val name = edtName.text.toString()
         val number = edtNumber.text.toString()
         val email = edtEmail.text.toString()
-        val user = MyItem(null, name, number, false, "", "", "")
+        val user = MyItem(null, name, number, "",false, "", "", "")
 
 //        val bundle = Bundle()
 //        bundle.putParcelable("data", user)
