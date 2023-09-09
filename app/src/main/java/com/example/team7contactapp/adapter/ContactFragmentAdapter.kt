@@ -3,6 +3,7 @@ package com.example.team7contactapp.adapter
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -13,7 +14,8 @@ import com.example.team7contactapp.data.User
 import com.example.team7contactapp.databinding.ItemContactBinding
 
 
-class ContactFragmentAdapter(var mItems: MutableList<MyItem>) : RecyclerView.Adapter<ContactFragmentAdapter.Holder>() {
+class ContactFragmentAdapter(var mItems: MutableList<MyItem> ) :
+    RecyclerView.Adapter<ContactFragmentAdapter.Holder>() {
 
     fun addList(contact: MyItem) {
         mItems.add(contact)
@@ -35,10 +37,11 @@ class ContactFragmentAdapter(var mItems: MutableList<MyItem>) : RecyclerView.Ada
     override fun onBindViewHolder(holder: Holder, position: Int) {
         holder.bind(mItems[position])
 
-        if (mItems[position].favorite)
+        if (mItems[position].favorite) {
             holder.binding.itemFavoriteYellow.setImageResource(R.drawable.img_bookmarkon)
-        else
+        } else {
             holder.binding.itemFavoriteYellow.setImageResource(R.drawable.staroff)
+        }
     }
 
     override fun getItemId(position: Int): Long {
@@ -56,6 +59,7 @@ class ContactFragmentAdapter(var mItems: MutableList<MyItem>) : RecyclerView.Ada
 
     inner class Holder(val binding: ItemContactBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: MyItem) {
+
             binding.itemProfile.setImageResource(item.icon ?: R.drawable.profiles)
             binding.itemUserName.text = item.name
             binding.itemFavoriteYellow.setOnClickListener {
@@ -63,10 +67,17 @@ class ContactFragmentAdapter(var mItems: MutableList<MyItem>) : RecyclerView.Ada
                 if (!item.favorite) {
                     binding.itemFavoriteYellow.setImageResource(R.drawable.img_bookmarkon)
                     item.favorite = true
+                    val item = mItems[adapterPosition]
+                    mItems.removeAt(adapterPosition)
+                    mItems.add(0, item)
+                    notifyItemMoved(adapterPosition, 0)
                 } else {
                     binding.itemFavoriteYellow.setImageResource(R.drawable.staroff)
                     item.favorite = false
+                    mItems.sortBy { it.name }
+                    notifyDataSetChanged()
                 }
+
             }
 
             itemView.setOnClickListener {

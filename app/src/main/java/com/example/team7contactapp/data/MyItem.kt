@@ -7,6 +7,7 @@ import kotlinx.parcelize.Parcelize
 object User {
     val dataList = mutableListOf<MyItem>(
         MyItem(
+
             R.drawable.donghyun,
             "윤동현",
             "010-4883-2929",
