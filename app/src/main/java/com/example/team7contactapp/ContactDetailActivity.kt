@@ -36,7 +36,7 @@ class ContactDetailActivity : AppCompatActivity() {
                 isLike = true
             }
             else{
-                binding.activityContactDetailStar.setImageResource(R.drawable.img_bookmarkoff)
+                binding.activityContactDetailStar.setImageResource(R.drawable.staroff)
                 isLike = false
             }
 
