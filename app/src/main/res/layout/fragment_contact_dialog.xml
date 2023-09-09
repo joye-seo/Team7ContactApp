@@ -96,6 +96,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:counterEnabled="true"
                 app:hintEnabled="false">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -103,6 +104,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="연락처"
+                    android:inputType="phone"
                     android:maxLines="1"
                     android:textSize="16sp" />
 
@@ -137,6 +139,7 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:counterEnabled="true"
                     app:hintEnabled="false">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -161,6 +164,7 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:counterEnabled="true"
                     app:hintEnabled="false">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -185,6 +189,7 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:counterEnabled="true"
                     app:hintEnabled="false">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -209,6 +214,7 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    app:counterEnabled="true"
                     app:hintEnabled="false">
 
                     <com.google.android.material.textfield.TextInputEditText
