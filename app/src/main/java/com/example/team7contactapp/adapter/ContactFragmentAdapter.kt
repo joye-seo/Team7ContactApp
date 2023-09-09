@@ -1,5 +1,7 @@
 package com.example.team7contactapp.adapter
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -16,6 +18,11 @@ class ContactFragmentAdapter(var mItems: MutableList<MyItem>) : RecyclerView.Ada
     fun addList(contact: MyItem) {
         mItems.add(contact)
         mItems.sortBy { it.name }
+        notifyDataSetChanged()
+    }
+
+    fun deleteList(position: Int) {
+        mItems.removeAt(position)
         notifyDataSetChanged()
     }
 
@@ -53,8 +60,26 @@ class ContactFragmentAdapter(var mItems: MutableList<MyItem>) : RecyclerView.Ada
                 myIntent.putExtra("Data", User.dataList[adapterPosition])
                 itemView.context.startActivity(myIntent)
             }
-            itemView.setOnLongClickListener {
 
+            itemView.setOnLongClickListener {
+                var builder = AlertDialog.Builder(it.context)
+                builder.setTitle("연락처 삭제")
+                builder.setMessage("정말로 삭제하시겠습니까?!?!?!?!?!!")
+
+                val listener = object : DialogInterface.OnClickListener {
+                    override fun onClick(dialog: DialogInterface?, which: Int) {
+                        when (which) {
+                            DialogInterface.BUTTON_POSITIVE ->
+                                deleteList(adapterPosition)
+                        }
+
+                    }
+
+                }
+                builder.setPositiveButton("삭제", listener)
+                builder.setNegativeButton("취소", listener)
+
+                builder.show()
                 true
             }
         }
