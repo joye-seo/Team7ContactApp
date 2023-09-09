@@ -8,7 +8,7 @@ object User {
     val dataList = mutableListOf<MyItem>(
         MyItem(R.drawable.donghyun, "윤동현", "010-4883-2929","donghyun@gmail.com", false, "이천시 창전동", "7월5일", "잘부탁드립니다 INTJ입니다"),
         MyItem(R.drawable.jinjoo, "황진주", "010-9091-4358","jinjoo@gmail.com", false, "서울시 강남구", "9월8일", "안녕하세요 파워 E입니다!!"),
-        MyItem(R.drawable.profiles, "서수현", "010-4565-2156","suhyun@gmail.com", false, "서울시 강북구", "11월25일", "잘지내보아용!! 플젝화이팅!!"),
+        MyItem(R.drawable.img_profile_soohyun, "서수현", "010-4565-2156","suhyun@gmail.com", false, "서울시 강북구", "11월25일", "잘지내보아용!! 플젝화이팅!!"),
         MyItem(R.drawable.ljm, "이종민", "010-9117-1065","jongmin@gmail.com", false, "인천시 부평구", "12월 32일", "프로젝트 화이팅!!!!"),
         MyItem(R.drawable.sungjin, "이성진", "010-4659-8951","sungjin@gmail.com", false, "서울시 은평구", "8월9일", "안녕하세요 이성진입니다!!"),
         MyItem(R.drawable.profiles, "최다현", "010-1234-5678","dahyun@gmail.com", false, "서울시 강서구", "10월25일", "안녕하세요 파워 T입니다"),
