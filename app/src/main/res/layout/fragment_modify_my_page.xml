@@ -77,7 +77,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/img_user"
-                    app:tint="#979797" />
+                    app:tint="@color/LightOrange" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ic_number"
@@ -87,7 +87,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/ic_name"
                     app:srcCompat="@drawable/img_call"
-                    app:tint="#979797" />
+                    app:tint="@color/LightOrange" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ic_mail"
@@ -97,7 +97,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/ic_number"
                     app:srcCompat="@drawable/img_email"
-                    app:tint="#979797" />
+                    app:tint="@color/LightOrange" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ic_address"
@@ -107,7 +107,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/ic_mail"
                     app:srcCompat="@drawable/img_address"
-                    app:tint="#979797" />
+                    app:tint="@color/LightOrange" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ic_birth"
@@ -117,7 +117,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/ic_address"
                     app:srcCompat="@drawable/img_birth"
-                    app:tint="#979797" />
+                    app:tint="@color/LightOrange" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ic_memo"
@@ -127,7 +127,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/ic_birth"
                     app:srcCompat="@drawable/img_memo"
-                    app:tint="#979797" />
+                    app:tint="@color/LightOrange" />
 
                 <EditText
                     android:id="@+id/edt_my_name"
@@ -205,16 +205,19 @@
                     app:layout_constraintStart_toEndOf="@+id/ic_memo"
                     app:layout_constraintTop_toTopOf="@+id/ic_memo" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/bt_mypage_modify_finish"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:text="수정완료"
+                    android:text=""
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/edt_my_memo" />
+                    app:layout_constraintTop_toBottomOf="@+id/edt_my_memo"
+                    android:background="@drawable/checkandcolorbutton"/>
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
