@@ -34,7 +34,7 @@ data class MyItem(
     val name: String,
     val contact: String,
     val emaill:String,
-    val favorite: Boolean,
+    var favorite: Boolean,
     val address: String?,
     val birth: String?,
     val memo: String?,

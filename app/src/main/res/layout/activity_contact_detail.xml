@@ -70,11 +70,14 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_margin="15dp"
+            android:clickable="true"
+            android:focusable="true"
             android:layout_marginStart="16dp"
             android:layout_marginBottom="12dp"
             android:src="@drawable/staroff"
             app:layout_constraintBottom_toBottomOf="@+id/iv_profile"
             app:layout_constraintStart_toStartOf="parent" />
+
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_call"

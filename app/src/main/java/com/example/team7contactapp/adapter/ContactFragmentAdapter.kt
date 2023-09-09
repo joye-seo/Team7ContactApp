@@ -34,6 +34,11 @@ class ContactFragmentAdapter(var mItems: MutableList<MyItem>) : RecyclerView.Ada
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
         holder.bind(mItems[position])
+
+        if (mItems[position].favorite)
+            holder.binding.itemFavoriteYellow.setImageResource(R.drawable.img_bookmarkon)
+        else
+            holder.binding.itemFavoriteYellow.setImageResource(R.drawable.staroff)
     }
 
     override fun getItemId(position: Int): Long {
@@ -53,7 +58,16 @@ class ContactFragmentAdapter(var mItems: MutableList<MyItem>) : RecyclerView.Ada
         fun bind(item: MyItem) {
             binding.itemProfile.setImageResource(item.icon ?: R.drawable.profiles)
             binding.itemUserName.text = item.name
-            binding.itemFavoriteYellow
+            binding.itemFavoriteYellow.setOnClickListener {
+
+                if (!item.favorite) {
+                    binding.itemFavoriteYellow.setImageResource(R.drawable.img_bookmarkon)
+                    item.favorite = true
+                } else {
+                    binding.itemFavoriteYellow.setImageResource(R.drawable.staroff)
+                    item.favorite = false
+                }
+            }
 
             itemView.setOnClickListener {
                 val myIntent = Intent(itemView.context, ContactDetailActivity::class.java)
