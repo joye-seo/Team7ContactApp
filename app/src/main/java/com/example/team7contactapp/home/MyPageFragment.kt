@@ -1,18 +1,23 @@
 package com.example.team7contactapp.home
 
+
+import com.example.team7contactapp.data.MypageConText
+import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import com.example.team7contactapp.ContactDialogFragment
-import com.example.team7contactapp.R
-import com.example.team7contactapp.databinding.FragmentKeypadBinding
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.example.team7contactapp.ModifyMyPageFragment
 import com.example.team7contactapp.databinding.FragmentMyPageBinding
+import java.io.File
 
-class MyPageFragment : Fragment() {
+
+class MyPageFragment : Fragment(), ModifyMyPageFragment.OnDataModifiedListener {
 
     private var _binding: FragmentMyPageBinding? = null
     private val binding get() = _binding!!
@@ -30,14 +35,19 @@ class MyPageFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentMyPageBinding.bind(view)
 
+        // SharedPreferences에서 저장된 이름 및 이미지 불러오기 (이 부분은 updateData()를 호출함으로써 간결하게 처리)
+        updateData()
+
+        //내페이지 공유버튼
         binding.icShare.setOnClickListener {
             // xml에서 데이터 가져오기
-            val name = binding.txName.text.toString()
-            val number = binding.txNumber.text.toString()
-            val email = binding.txEmail.text.toString()
+            val myname = binding.txName.text.toString()
+            val mynumber = binding.txNumber.text.toString()
+            val myemail = binding.txEmail.text.toString()
+
 
             // 출력될 메세지 내용
-            val message = "이름: $name\n 전화번호: $number\n 이메일: $email"
+            val message = "이름: $myname\n 전화번호: $mynumber\n 이메일: $myemail"
 
             val sendIntent: Intent = Intent().apply {
                 action = Intent.ACTION_SEND
@@ -49,23 +59,69 @@ class MyPageFragment : Fragment() {
             startActivity(shareIntent)
         }
 
+//내페이지수정버튼
         binding.icModify.setOnClickListener {
-
-            loadFragment()
+            val modifyFragment = ModifyMyPageFragment()
+            modifyFragment.setOnDataModifiedListener(this)  // listener 설정
+            modifyFragment.show(requireFragmentManager(), "ModifyMyPageDialog")
         }
-    }
-
-    //▲위 내용은, 에뮬 구동시, 구글 로그인 해놔야, 메일 전송으로 바로 내용 복사되어 보낼수 있음.
-    // 발표시 참고하기 !
-
-    private fun loadFragment() {
-        val fragmentManager = requireActivity().supportFragmentManager
-        val newFragment = ContactDialogFragment()
-        newFragment.show(fragmentManager, "ContactDialogFragment")
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onResume() {
+        super.onResume()
+        updateData()
+    }
+
+    override fun onDataModified() {
+        updateData()  // 데이터 수정 시에도 동일한 데이터 갱신 메소드 호출
+    }
+
+    private fun updateData() {
+        // SharedPreferences에서 정보 가져오기
+        val sharedPreferences =
+            requireActivity().getSharedPreferences(MypageConText.PREF_MYPAGE, Context.MODE_PRIVATE)
+
+        // 이름 가져와서 설정하기
+        binding.txName.text =
+            sharedPreferences.getString(MypageConText.KEY_MYNAME, binding.txName.text.toString())
+
+        // 전화번호 가져와서 설정하기
+        binding.txNumber.text =
+            sharedPreferences.getString(MypageConText.KEY_MYNUMBER, binding.txNumber.text.toString())
+
+        // 이메일 가져와서 설정하기
+        binding.txEmail.text =
+            sharedPreferences.getString(MypageConText.KEY_MYEMAIL, binding.txEmail.text.toString())
+
+        // 주소 가져와서 설정하기
+        binding.txAddress.text =
+            sharedPreferences.getString(MypageConText.KEY_MYADDRESS, binding.txAddress.text.toString())
+
+        // 생일 가져와서 설정하기
+        binding.txBirth.text =
+            sharedPreferences.getString(MypageConText.KEY_MYBIRTHDAY, binding.txBirth.text.toString())
+
+        // 메모 가져와서 설정하기
+        binding.txMemo.text =
+            sharedPreferences.getString(MypageConText.KEY_MYMEMO, binding.txMemo.text.toString())
+
+
+        // 이미지 경로 가져와서 Glide를 사용하여 이미지 로드하기
+        val savedImagePath = sharedPreferences.getString(MypageConText.KEY_MYIMAGE_PATH, null)
+        savedImagePath?.let {
+            val imageFile = File(it)
+            if (imageFile.exists()) {
+                Glide.with(requireActivity())
+                    .load(Uri.fromFile(imageFile))
+                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .skipMemoryCache(true)
+                    .into(binding.imgMyimage)
+            }
+        }
     }
 }
