@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/fg_mypage">
+    android:layout_height="match_parent">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+
+
         <!--    이미지+상세내용 스크롤뷰를 위해 한번  감쌈.-->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -18,7 +17,7 @@
             <!--내 사진 들어갈곳-->
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/img_myimage"
+                android:id="@+id/img_myimage_modify"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:scaleType="centerCrop"
@@ -28,38 +27,38 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ic_mypage_image_change"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/ic_mypage_imagechange"
+                android:alpha="0.5"
+                android:tint="@color/white"
+                app:layout_constraintTop_toTopOf="@+id/img_myimage_modify"
+                app:layout_constraintBottom_toBottomOf="@+id/img_myimage_modify"
+                app:layout_constraintStart_toStartOf="@+id/img_myimage_modify"
+                app:layout_constraintEnd_toEndOf="@+id/img_myimage_modify"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="사진 변경하기"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:alpha="0.5"
+                app:layout_constraintEnd_toEndOf="@+id/ic_mypage_image_change"
+                app:layout_constraintStart_toStartOf="@+id/ic_mypage_image_change"
+                app:layout_constraintTop_toBottomOf="@+id/ic_mypage_image_change" />
+
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:background="@drawable/gradient_overlay"
-                app:layout_constraintEnd_toEndOf="@+id/img_myimage"
-                app:layout_constraintStart_toStartOf="@+id/img_myimage"
-                app:layout_constraintTop_toTopOf="@+id/img_myimage" />
-
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/ic_share"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:alpha="0.5"
-                app:layout_constraintEnd_toEndOf="@+id/img_myimage"
-                app:layout_constraintTop_toTopOf="@+id/img_myimage"
-                app:srcCompat="@drawable/img_share"
-                app:tint="@color/white" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/ic_modify"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginEnd="30dp"
-                android:alpha="0.5"
-                app:layout_constraintBottom_toBottomOf="@+id/ic_share"
-                app:layout_constraintEnd_toStartOf="@+id/ic_share"
-                app:layout_constraintTop_toTopOf="@+id/ic_share"
-                app:srcCompat="@drawable/img_pen"
-                app:tint="@color/white" />
+                app:layout_constraintEnd_toEndOf="@+id/img_myimage_modify"
+                app:layout_constraintStart_toStartOf="@+id/img_myimage_modify"
+                app:layout_constraintTop_toTopOf="@+id/img_myimage_modify" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/info_box"
@@ -68,7 +67,7 @@
                 android:padding="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/img_myimage">
+                app:layout_constraintTop_toBottomOf="@+id/img_myimage_modify">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ic_name"
@@ -130,75 +129,93 @@
                     app:srcCompat="@drawable/img_memo"
                     app:tint="#979797" />
 
-                <TextView
-                    android:id="@+id/tx_name"
+                <EditText
+                    android:id="@+id/edt_my_name"
                     style="@style/MypageTextStyle"
-                    android:layout_width="wrap_content"
+                    android:layout_width="200dp"
+                    android:layout_marginTop="-20dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:text="이름"
-                    app:layout_constraintBottom_toBottomOf="@+id/ic_name"
+                    android:hint="이름"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/ic_name"
                     app:layout_constraintTop_toTopOf="@+id/ic_name" />
 
-                <TextView
-                    android:id="@+id/tx_number"
+                <EditText
+                    android:id="@+id/edt_my_number"
                     style="@style/MypageTextStyle"
-                    android:layout_width="wrap_content"
+                    android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:text="010-1212-1234"
-                    app:layout_constraintBottom_toBottomOf="@+id/ic_number"
+                    android:layout_marginTop="-20dp"
+                    android:hint="전화번호"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/ic_number"
                     app:layout_constraintTop_toTopOf="@+id/ic_number" />
 
-                <TextView
-                    android:id="@+id/tx_email"
+                <EditText
+                    android:id="@+id/edt_my_email"
                     style="@style/MypageTextStyle"
-                    android:layout_width="wrap_content"
+                    android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:text="adsf@gmail.com"
-                    app:layout_constraintBottom_toBottomOf="@+id/ic_mail"
+                    android:layout_marginTop="-20dp"
+                    android:hint="이메일"
+
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/ic_mail"
                     app:layout_constraintTop_toTopOf="@+id/ic_mail" />
 
-                <TextView
-                    android:id="@+id/tx_address"
+                <EditText
+                    android:id="@+id/edt_my_address"
                     style="@style/MypageTextStyle"
-                    android:layout_width="wrap_content"
+                    android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:text="서울시 ㅇㅇ구 ㅇㅇ동 464-4 \n 1201동 2402호"
-                    app:layout_constraintBottom_toBottomOf="@+id/ic_address"
+                    android:layout_marginTop="-20dp"
+                    android:hint="주소"
+
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/ic_address"
                     app:layout_constraintTop_toTopOf="@+id/ic_address" />
 
-                <TextView
-                    android:id="@+id/tx_birth"
+                <EditText
+                    android:id="@+id/edt_my_birth"
                     style="@style/MypageTextStyle"
-                    android:layout_width="wrap_content"
+                    android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:text="12월 25일"
-                    app:layout_constraintBottom_toBottomOf="@+id/ic_birth"
+                    android:layout_marginTop="-20dp"
+                    android:hint="생일"
+
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/ic_birth"
                     app:layout_constraintTop_toTopOf="@+id/ic_birth" />
 
-                <TextView
-                    android:id="@+id/tx_memo"
+                <EditText
+                    android:id="@+id/edt_my_memo"
                     style="@style/MypageTextStyle"
-                    android:layout_width="wrap_content"
+                    android:layout_width="200dp"
+                    android:layout_marginTop="-20dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="-10dp"
+                    android:hint="메모"
                     android:lineSpacingExtra="10dp"
-                    android:text="출근하기싫다. \n월루하고싶다 \n꿀 빨고 싶다."
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/ic_memo"
                     app:layout_constraintTop_toTopOf="@+id/ic_memo" />
+
+                <Button
+                    android:id="@+id/bt_mypage_modify_finish"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="수정완료"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edt_my_memo" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-
-</FrameLayout>
