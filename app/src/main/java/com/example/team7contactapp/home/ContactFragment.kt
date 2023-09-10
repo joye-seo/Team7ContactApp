@@ -4,13 +4,17 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.PopupMenu
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.team7contactapp.ContactDialogFragment
+import com.example.team7contactapp.R
 import com.example.team7contactapp.adapter.ContactFragmentAdapter
 import com.example.team7contactapp.data.MyItem
 import com.example.team7contactapp.data.User.dataList
@@ -18,9 +22,9 @@ import com.example.team7contactapp.databinding.FragmentContactBinding
 
 class ContactFragment : Fragment(), ContactDialogFragment.AddItem {
 
-    private var _binding: FragmentContactBinding? = null //Start
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+    private var _binding: FragmentContactBinding? = null
+    private lateinit var layoutManager: RecyclerView.LayoutManager
+    private var isGridLayout = false
     private val binding get() = _binding!!
     val adapter = ContactFragmentAdapter(dataList)
 
@@ -40,6 +44,8 @@ class ContactFragment : Fragment(), ContactDialogFragment.AddItem {
         dataList.sortBy { it.name }
         binding.recyclerview.adapter = adapter
         binding.recyclerview.layoutManager = LinearLayoutManager(context)
+        isGridLayout = false
+        adapter.switchLayout(false)
         contactAdd()
 
         val itemTouchHelperCallback =
@@ -63,7 +69,42 @@ class ContactFragment : Fragment(), ContactDialogFragment.AddItem {
             }
         val itemTouchHelper = ItemTouchHelper(itemTouchHelperCallback)
         itemTouchHelper.attachToRecyclerView(binding.recyclerview)
+
+        binding.icMore.setOnClickListener {
+            showPopupMenu()
+        }
     }
+
+    private fun showPopupMenu() {
+        val popupMenu = PopupMenu(requireContext(), binding.icMore)
+        popupMenu.menuInflater.inflate(R.menu.menu_contact, popupMenu.menu)
+
+        // 팝업 메뉴 아이템 클릭 이벤트 처리
+        popupMenu.setOnMenuItemClickListener { item: MenuItem ->
+            when (item.itemId) {
+                R.id.menu_linear -> {
+                    layoutManager = LinearLayoutManager(context)
+                    binding.recyclerview.layoutManager = layoutManager
+                    isGridLayout = false
+                    adapter.switchLayout(false) // Linear 레이아웃으로 변경
+                    true
+                }
+
+                R.id.menu_grid -> {
+                    layoutManager = GridLayoutManager(context, 2)
+                    binding.recyclerview.layoutManager = layoutManager
+                    isGridLayout = true
+                    adapter.switchLayout(true) // Linear 레이아웃으로 변경
+                    true
+                }
+
+                else -> false
+            }
+        }
+
+        popupMenu.show()
+    }
+
 
     private fun hasCallPermission(): Boolean {
         return true
