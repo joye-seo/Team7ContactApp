@@ -58,46 +58,6 @@ object User {
             "안녕하세요 이성진입니다!!"
         ),
         MyItem(
-            R.drawable.profiles,
-            "최다현",
-            "010-1234-5678",
-            "dahyun@gmail.com",
-            false,
-            "서울시 강서구",
-            "2020/10/25",
-            "안녕하세요 파워 T입니다"
-        ),
-        MyItem(
-            R.drawable.profiles,
-            "정용현",
-            "010-2345-6789",
-            "younghyun.gmail.com",
-            false,
-            "서울시 강동구",
-            "2020/1/23",
-            "OOP 마스터입니다"
-        ),
-        MyItem(
-            R.drawable.profiles,
-            "김에디",
-            "010-3456-7890",
-            "edit@gmail.com",
-            false,
-            "부산시 동구",
-            "2020/3/25",
-            "리싸이클러뷰 중요해요"
-        ),
-        MyItem(
-            R.drawable.profiles,
-            "박에디",
-            "010-4567-8901",
-            "edit@gmail.com",
-            false,
-            "부산시 남구",
-            "2020/5/1",
-            "리싸이클러뷰 중요해요"
-        ),
-        MyItem(
             R.drawable.kwonsangwoo,
             "권상우",
             "010-5678-9012",
