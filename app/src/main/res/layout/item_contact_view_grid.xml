@@ -57,12 +57,14 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.appcompat.widget.AppCompatImageView
-            app:layout_constraintStart_toStartOf="parent"
             android:id="@+id/iv_star"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="end"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
             android:background="@drawable/staroff"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
