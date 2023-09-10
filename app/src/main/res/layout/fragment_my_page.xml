@@ -47,7 +47,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/img_myimage"
                 app:layout_constraintTop_toTopOf="@+id/img_myimage"
                 app:srcCompat="@drawable/img_share"
-                app:tint="@color/LightOrange" />
+                app:tint="#979797" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/ic_modify"
@@ -59,7 +59,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/ic_share"
                 app:layout_constraintTop_toTopOf="@+id/ic_share"
                 app:srcCompat="@drawable/img_pen"
-                app:tint="@color/LightOrange" />
+                app:tint="#979797" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/info_box"
