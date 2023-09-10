@@ -18,6 +18,18 @@ class ContactDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        binding.ivPen.setOnClickListener {
+            val intent = Intent(this, DetailModityActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.ivCall.setOnClickListener {
+            val number = binding.tvContactinfo.toString()
+            val intent = Intent(this, HomeActivity::class.java)
+            intent.putExtra("data", number)
+            startActivity(intent)
+        }
+
         //parcelable 데이터를 받아올 때 사용하는 코드
         var testList = intent.getParcelableExtra<MyItem>("Data")
 

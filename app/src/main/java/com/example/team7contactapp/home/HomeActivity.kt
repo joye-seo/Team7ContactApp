@@ -24,6 +24,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
         initViewPager()
         initBottomNav()
+        //val contact = intent.getStringExtra("data") 값 전달 받은 부분
 
     }
 
