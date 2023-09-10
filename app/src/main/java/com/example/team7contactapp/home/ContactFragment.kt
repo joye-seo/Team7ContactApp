@@ -88,9 +88,9 @@ class ContactFragment : Fragment(), ContactDialogFragment.AddItem {
                     layoutManager = LinearLayoutManager(context)
                     binding.recyclerview.layoutManager = layoutManager
                     isGridLayout = false
-                    binding.recyclerview.removeItemDecoration(
-                        GridSpacingItemDecoration(2, spacing = 8f.fromDpToPx())
-                    )
+//                    binding.recyclerview.removeItemDecoration(
+//                        GridSpacingItemDecoration(4, spacing = 8f.fromDpToPx())
+//                    )
                     adapter.switchLayout(false) // Linear 레이아웃으로 변경
                     true
                 }
@@ -98,9 +98,9 @@ class ContactFragment : Fragment(), ContactDialogFragment.AddItem {
                 R.id.menu_grid -> {
                     layoutManager = GridLayoutManager(context, 2)
                     binding.recyclerview.layoutManager = layoutManager
-                    binding.recyclerview.addItemDecoration(
-                        GridSpacingItemDecoration(2, spacing = 8f.fromDpToPx())
-                    )
+//                    binding.recyclerview.addItemDecoration(
+//                        GridSpacingItemDecoration(2, spacing = 8f.fromDpToPx())
+//                    )
                     isGridLayout = true
                     adapter.switchLayout(true) // Linear 레이아웃으로 변경
                     true

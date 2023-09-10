@@ -70,10 +70,10 @@ class ContactDialogFragment : DialogFragment() {
             dismiss()
         }
         btnImage.setOnClickListener {
-            val intent = Intent(Intent.ACTION_PICK)
-            intent.type = "*/*"
-            startActivityForResult(intent, REQUEST_CODE_PICK_FILE)
-            btnImage.scaleType = ImageView.ScaleType.CENTER_CROP
+//            val intent = Intent(Intent.ACTION_PICK)
+//            intent.type = "*/*"
+//            startActivityForResult(intent, REQUEST_CODE_PICK_FILE)
+//            btnImage.scaleType = ImageView.ScaleType.CENTER_CROP
         }
         btnSave.setOnClickListener {
             val name = binding.edtName.text.toString()
@@ -195,9 +195,6 @@ class ContactDialogFragment : DialogFragment() {
                 val editor = sharedPreferences.edit()
                 editor.putString(MypageConText.KEY_MYIMAGE_PATH, newImagePath)
                 editor.apply()
-
-                Log.d("Mypage", "Saved Image Path: $newImagePath")
-
 
             }
         } else if (requestCode == REQUEST_IMAGE_PICK) {
