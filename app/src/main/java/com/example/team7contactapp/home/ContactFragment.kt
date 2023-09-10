@@ -1,6 +1,8 @@
 package com.example.team7contactapp.home
 
 import android.content.Intent
+import android.content.res.Resources
+import android.graphics.Rect
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -93,6 +95,9 @@ class ContactFragment : Fragment(), ContactDialogFragment.AddItem {
                 R.id.menu_grid -> {
                     layoutManager = GridLayoutManager(context, 2)
                     binding.recyclerview.layoutManager = layoutManager
+                    binding.recyclerview.addItemDecoration(
+                        GridSpacingItemDecoration(2, spacing = 8f.fromDpToPx())
+                    )
                     isGridLayout = true
                     adapter.switchLayout(true) // Linear 레이아웃으로 변경
                     true
@@ -103,6 +108,40 @@ class ContactFragment : Fragment(), ContactDialogFragment.AddItem {
         }
 
         popupMenu.show()
+    }
+
+    internal class GridSpacingItemDecoration(
+        private val spanCount: Int, // Grid의 column 수
+        private val spacing: Int // 간격
+    ) : RecyclerView.ItemDecoration() {
+
+        override fun getItemOffsets(
+            outRect: Rect,
+            view: View,
+            parent: RecyclerView,
+            state: RecyclerView.State
+        ) {
+            val position: Int = parent.getChildAdapterPosition(view)
+
+            if (position >= 0) {
+                val column = position % spanCount // item column
+                outRect.apply {
+                    // spacing - column * ((1f / spanCount) * spacing)
+                    left = spacing - column * spacing / spanCount
+                    // (column + 1) * ((1f / spanCount) * spacing)
+                    right = (column + 1) * spacing / spanCount
+                    if (position < spanCount) top = spacing
+                    bottom = spacing
+                }
+            } else {
+                outRect.apply {
+                    left = 0
+                    right = 0
+                    top = 0
+                    bottom = 0
+                }
+            }
+        }
     }
 
 
@@ -138,4 +177,7 @@ class ContactFragment : Fragment(), ContactDialogFragment.AddItem {
     override fun add(contact: MyItem) {
         adapter.addList(contact)
     }
+
+    fun Float.fromDpToPx(): Int =
+        (this * Resources.getSystem().displayMetrics.density).toInt()
 }
