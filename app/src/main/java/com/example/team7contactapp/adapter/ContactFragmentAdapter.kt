@@ -3,7 +3,6 @@ package com.example.team7contactapp.adapter
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -14,7 +13,7 @@ import com.example.team7contactapp.data.User
 import com.example.team7contactapp.databinding.ItemContactBinding
 
 
-class ContactFragmentAdapter(var mItems: MutableList<MyItem> ) :
+class ContactFragmentAdapter(var mItems: MutableList<MyItem>) :
     RecyclerView.Adapter<ContactFragmentAdapter.Holder>() {
 
     fun addList(contact: MyItem) {
@@ -63,21 +62,28 @@ class ContactFragmentAdapter(var mItems: MutableList<MyItem> ) :
             binding.itemProfile.setImageResource(item.icon ?: R.drawable.profiles)
             binding.itemUserName.text = item.name
             binding.itemFavoriteYellow.setOnClickListener {
-
                 if (!item.favorite) {
                     binding.itemFavoriteYellow.setImageResource(R.drawable.img_bookmarkon)
                     item.favorite = true
-                    val item = mItems[adapterPosition]
+                    val changedUser = mItems[adapterPosition].copy(favorite = true)
                     mItems.removeAt(adapterPosition)
-                    mItems.add(0, item)
-                    notifyItemMoved(adapterPosition, 0)
+                    val index = mItems.indexOfFirst { !it.favorite }
+                    if (index != -1) {
+                        mItems.add(index, changedUser)
+                    } else {
+                        mItems.add(0, changedUser)
+                    }
+                    mItems.sortWith(compareBy({ !it.favorite }, { it.name }))
+                    notifyDataSetChanged()
                 } else {
                     binding.itemFavoriteYellow.setImageResource(R.drawable.staroff)
                     item.favorite = false
-                    mItems.sortBy { it.name }
+                    val changedUser = item.copy(favorite = false)
+                    mItems.removeAt(adapterPosition)
+                    mItems.add(changedUser)
+                    mItems.sortWith(compareBy({ !it.favorite }, { it.name }))
                     notifyDataSetChanged()
                 }
-
             }
 
             itemView.setOnClickListener {
@@ -87,7 +93,7 @@ class ContactFragmentAdapter(var mItems: MutableList<MyItem> ) :
             }
 
             itemView.setOnLongClickListener {
-                var builder = AlertDialog.Builder(it.context)
+                val builder = AlertDialog.Builder(it.context)
                 builder.setTitle("연락처 삭제")
                 builder.setMessage("정말로 삭제하시겠습니까?!?!?!?!?!!")
 
@@ -108,7 +114,6 @@ class ContactFragmentAdapter(var mItems: MutableList<MyItem> ) :
                 true
             }
         }
-
 
     }
 }
