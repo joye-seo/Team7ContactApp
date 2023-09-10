@@ -43,7 +43,7 @@ class ContactFragment : Fragment(), ContactDialogFragment.AddItem {
         super.onViewCreated(view, savedInstanceState)
         //여기서부터 작업
         //데이터 원본준비
-        dataList.sortBy { it.name }
+        dataList.sortWith(compareBy({ !it.favorite }, { it.name }))
         binding.recyclerview.adapter = adapter
         binding.recyclerview.layoutManager = LinearLayoutManager(context)
         isGridLayout = false
@@ -88,6 +88,9 @@ class ContactFragment : Fragment(), ContactDialogFragment.AddItem {
                     layoutManager = LinearLayoutManager(context)
                     binding.recyclerview.layoutManager = layoutManager
                     isGridLayout = false
+                    binding.recyclerview.removeItemDecoration(
+                        GridSpacingItemDecoration(2, spacing = 8f.fromDpToPx())
+                    )
                     adapter.switchLayout(false) // Linear 레이아웃으로 변경
                     true
                 }

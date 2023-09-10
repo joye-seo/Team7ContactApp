@@ -24,7 +24,7 @@ class ContactFragmentAdapter(var mItems: MutableList<MyItem>) :
 
     fun addList(contact: MyItem) {
         mItems.add(contact)
-        mItems.sortBy { it.name }
+        User.dataList.sortWith(compareBy({ !it.favorite }, { it.name }))
         notifyDataSetChanged()
     }
 
