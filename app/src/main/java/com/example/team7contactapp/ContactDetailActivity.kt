@@ -1,9 +1,9 @@
 package com.example.team7contactapp
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.res.ResourcesCompat
 import com.example.team7contactapp.data.MyItem
 import com.example.team7contactapp.databinding.ActivityContactDetailBinding
 import com.example.team7contactapp.home.HomeActivity
@@ -23,12 +23,7 @@ class ContactDetailActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        binding.ivCall.setOnClickListener {
-            val number = binding.tvContactinfo.toString()
-            val intent = Intent(this, HomeActivity::class.java)
-            intent.putExtra("data", number)
-            startActivity(intent)
-        }
+
 
         //parcelable 데이터를 받아올 때 사용하는 코드
         var testList = intent.getParcelableExtra<MyItem>("Data")
@@ -50,9 +45,19 @@ class ContactDetailActivity : AppCompatActivity() {
             isLike = false
         }
 
+        binding.ivCall.setOnClickListener {
+            makeCall(testList?.contact!!)
+        }
+
         binding.icBack.setOnClickListener {
             exit()
         }
+    }
+
+    private fun makeCall(contact: String) {
+        val intent = Intent(Intent.ACTION_CALL)
+        intent.data = Uri.parse("tel:$contact")
+        startActivity(intent)
     }
 
     fun exit() {
