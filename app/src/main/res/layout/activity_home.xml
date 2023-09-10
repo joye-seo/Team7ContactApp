@@ -17,7 +17,7 @@
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:background="@color/white"
+        android:background="#FFEFD9"
         android:backgroundTint="@color/white"
         app:itemIconSize="24dp"
         app:itemRippleColor="@null"
