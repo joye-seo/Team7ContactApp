@@ -1,15 +1,18 @@
 package com.example.team7contactapp.home
 
+import android.app.Activity
 import android.content.Intent
 import android.content.res.Resources
 import android.graphics.Rect
 import android.net.Uri
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.PopupMenu
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -24,6 +27,7 @@ import com.example.team7contactapp.databinding.FragmentContactBinding
 
 class ContactFragment : Fragment(), ContactDialogFragment.AddItem {
 
+    private val CONTACT_PICK_REQUEST_CODE = 100
     private var _binding: FragmentContactBinding? = null
     private lateinit var layoutManager: RecyclerView.LayoutManager
     private var isGridLayout = false
@@ -106,46 +110,74 @@ class ContactFragment : Fragment(), ContactDialogFragment.AddItem {
                     true
                 }
 
+                R.id.menu_borrow -> {
+                    val intent = Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Phone.CONTENT_URI)
+                    startActivityForResult(intent, CONTACT_PICK_REQUEST_CODE)
+
+                    true
+                }
+
                 else -> false
             }
         }
 
         popupMenu.show()
     }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
 
-    internal class GridSpacingItemDecoration(
-        private val spanCount: Int, // Grid의 column 수
-        private val spacing: Int // 간격
-    ) : RecyclerView.ItemDecoration() {
+        if (requestCode == CONTACT_PICK_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            // 연락처를 선택한 후에 여기로 도착합니다.
+            val contactUri = data?.data
 
-        override fun getItemOffsets(
-            outRect: Rect,
-            view: View,
-            parent: RecyclerView,
-            state: RecyclerView.State
-        ) {
-            val position: Int = parent.getChildAdapterPosition(view)
+            // 선택한 연락처 정보를 가져오는 로직을 작성하세요.
+            if (contactUri != null) {
+                val cursor = requireActivity().contentResolver.query(
+                    contactUri,
+                    null,
+                    null,
+                    null,
+                    null
+                )
 
-            if (position >= 0) {
-                val column = position % spanCount // item column
-                outRect.apply {
-                    // spacing - column * ((1f / spanCount) * spacing)
-                    left = spacing - column * spacing / spanCount
-                    // (column + 1) * ((1f / spanCount) * spacing)
-                    right = (column + 1) * spacing / spanCount
-                    if (position < spanCount) top = spacing
-                    bottom = spacing
-                }
-            } else {
-                outRect.apply {
-                    left = 0
-                    right = 0
-                    top = 0
-                    bottom = 0
+                if (cursor != null && cursor.moveToFirst()) {
+                    do {
+                        val contactNameIndex =
+                            cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME)
+                        val contactPhoneNumberIndex =
+                            cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER)
+
+                        if (contactNameIndex != -1) {
+                            val contactName = cursor.getString(contactNameIndex)
+
+                            if (contactPhoneNumberIndex != -1) {
+                                val contactPhoneNumber = cursor.getString(contactPhoneNumberIndex)
+                                val data = MyItem(
+                                    null,
+                                    contactName,
+                                    contactPhoneNumber,
+                                    null,
+                                    false,
+                                    null,
+                                    null,
+                                    null
+                                )
+                                dataList.add(data)
+                            } else {
+                                // CommonDataKinds.Phone.NUMBER 컬럼이 없거나 데이터가 없을 경우 처리
+                            }
+                        } else {
+                            // DISPLAY_NAME 컬럼이 없거나 데이터가 없을 경우 처리
+                        }
+                    } while (cursor.moveToNext())
+
+                    cursor.close()
+                    adapter.notifyDataSetChanged() // 데이터 변경 시 RecyclerView 갱신
                 }
             }
         }
     }
+
 
 
     private fun hasCallPermission(): Boolean {
@@ -180,7 +212,4 @@ class ContactFragment : Fragment(), ContactDialogFragment.AddItem {
     override fun add(contact: MyItem) {
         adapter.addList(contact)
     }
-
-    fun Float.fromDpToPx(): Int =
-        (this * Resources.getSystem().displayMetrics.density).toInt()
 }

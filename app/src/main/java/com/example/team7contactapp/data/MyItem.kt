@@ -135,7 +135,7 @@ data class MyItem(
     val icon: Int?,
     val name: String,
     val contact: String,
-    val emaill: String,
+    val emaill: String?,
     var favorite: Boolean,
     val address: String?,
     val birth: String?,
