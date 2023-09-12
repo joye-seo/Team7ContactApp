@@ -1,25 +1,76 @@
-# Team7ContactApp
-7조만 사용할 수 있는 연락처 어플!
+# 📱 ContactApp - 71억ᄂrᄂl。。。? ★
 
-9월 4일 오후 4:18
-[DESIGN] : 🎨 mypage Xml 완성
+## 💻 프로젝트 소개
+연락처 앱이라는 주제를 받고 단순히 이름, 전화번호로만 연락처를 저장하는 것이 아닌
+이메일, 생일, 주소, 메모 등을 추가하여 우리의 추억을 저장하자…..(아련..) 란 의미를 갖고 시작하게 되었습니다.
 
-9월 5일 오후 6:43분 
-[FEAT] : ⚙️ 내정보 공유 기능 추가
+## 🔧 프로젝트 상세
 
-9.7일 오후 5시 10분 
-[DESIGN] : 🎨  디테일 페이지 xml 추가 및 수정 완료. (아이디 변경없음. 다만 없는 아이디는 기존 아이디 구성과 비슷하게 추가하였습니다. 또 이미지부분을 사진으로 대체하였습니다(색 조정을 위해서 변경하였습니다.)
+### 📆 개발기간
+23.09.04 ~ 23.09.11
 
-변경내용 상세 : 이름, 전화번호 텍스트로 되어있는 부분 > 아이콘으로 교체,
-text스타일 통일 
-폭 변경, 
+### 📽️ 시연 영상
 
-최상단 스크롤뷰 변경
-즐겨찾기 예시 > 빈별로 변경
+https://www.youtube.com/watch?v=vWqgZEVZb-E
 
-9.9일
-[DESIGN] : 🎨 마이페이지 디자인수정
-[FEAT] : ⚙️ 수정 버튼 기능 추가 
+### 🎨 와이어프레임
 
-9.10일
-[DESIGN] : 🎨 색감조정, 간격조정
+https://www.figma.com/file/WfnIywVP5UYBaa4HlE33lY/Untitled?type=whiteboard&node-id=8-91&t=bAo24IEPrtmbEmW3-0
+
+### 👥 개발자
++ ‍👩‍💻 황진주‍
+    - https://github.com/jinjoo1
++ ‍🧑‍💻 윤동현
+    - https://github.com/youneeo
++ ‍🧑‍💻 이성진
+    - https://github.com/asdsad86642
++ ‍🧑‍💻 이종민
+    - https://github.com/ljmin94
++ ‍👩‍💻 서수현
+    - https://github.com/joye-seo
+
+## 📌 주요 기능
+
+### HomeActivity
+* 작업자 : 서수현
+* BottomNavigation - ViewPager2 연결하여 스와이프 기능 구현
+
+### ContactFragment
+* 작업자 : 윤동현, 이종민, 서수현
+* Recyclerview 로 리스트 및 기능구현, 즐겨찾기 기능 구현
+* ItemTouchHelper(onMove, onSwiped) 사용하여 오른쪽 스와이프 시 전화 연결
+*  연락처 저장 시 sort를 이용해 이름순으로 추가가 됨 
+* star 버튼 클릭 시 맨 상단으로 올라가고 star버튼 클릭된 리스트도 이름순으로 정렬됨
+
+### KeypadFragment
+* 작업자 : 이성진
+* GridLayout으로 키패드 xml 작성
+* 영상통화 클릭시  다이얼로그 메세지 띄우기
+* Intents, Permissions,을 사용하여 전화 기능 구현
+
+### HistoryFragment
+* 작업자 : 이성진
+* 리싸이클리어뷰로 화면 구현
+* 클릭시 숨긴 텍스트 더미데이터를 가져와서 화면에 출력
+
+### MypageFragment
+* 작업자 : 황진주
+* 원하는 메시지 어플을 이용하여 내 정보 공유 가능
+* 수정시 이미지 즉시 반영, 
+* 수정한 후 에뮬을 껐다 켜도 유지 및 저장
+
+### ContactAddFragment
+* 작업자 : 서수현
+* 추가항목 보기 버튼 클릭 시 버튼 gone처리 되면서 추가항목 데이터 보여짐 
+* 필수항목 데이터 추가 되지 않으면 값이 넘어가지 않음 
+* 생일 클릭 시 달력dialog띄어지고 pick한 값이 입력됨 
+* 맞지 않는 데이터 (ex 이메일 주소 형식이 맞지 않을 때 aaa@bbb.ccc) 에러문구 띄어짐 
+* 이미지 갤러리에서 불러옴 (리스트에 추가는 구현 못함)
+
+### ContactDetailActivity
+* 작업자 : 이종민, 서수현
+* ScroView 로 화면 구현
+* Contactpage 아이템 클릭 시 더미데이터 화면에 출력
+* Contact 별 버튼 클릭 시 Detail에도 별 색이 변경되어 있음
+
+
