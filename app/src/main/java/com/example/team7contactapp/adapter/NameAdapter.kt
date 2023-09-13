@@ -1,4 +1,4 @@
-package com.example.team7contactapp
+package com.example.team7contactapp.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,23 +6,25 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.team7contactapp.data.Names
+import com.example.team7contactapp.R
 
 class NameAdapter(
-     private val NameList : ArrayList<Names>,
-     private val listener : NameItemClickListener
+    private val NameList : ArrayList<Names>,
+    private val listener : NameItemClickListener
     ) :  RecyclerView.Adapter<NameAdapter.CustomViewHolder>()
 {
 
 
     interface NameItemClickListener {
-        fun  onItemClick(name : Names , position: Int)
+        fun  onItemClick(name : Names, position: Int)
     }
 
     private  var expandedPosition = -1
 
 
 
-    override fun onCreateViewHolder( parent: ViewGroup, viewType: Int): NameAdapter.CustomViewHolder {
+    override fun onCreateViewHolder( parent: ViewGroup, viewType: Int): CustomViewHolder {
 
         val  view = LayoutInflater.from(parent.context).inflate(R.layout.adrees_item,parent,false)
         return CustomViewHolder(view)
@@ -33,7 +35,7 @@ class NameAdapter(
         return NameList.size
     }
 
-    override fun onBindViewHolder(holder: NameAdapter.CustomViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
         val currentItem = NameList[position]
 
         // 아이템의 상태를 기반으로 가시성 설정

@@ -1,4 +1,4 @@
-package com.example.team7contactapp
+package com.example.team7contactapp.data
 
 import java.time.LocalDate
 

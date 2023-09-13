@@ -5,10 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.team7contactapp.NameAdapter
-import com.example.team7contactapp.Names
+import com.example.team7contactapp.adapter.NameAdapter
+import com.example.team7contactapp.data.Names
 import com.example.team7contactapp.R
 import com.example.team7contactapp.databinding.FragmentHistoryBinding
 import java.time.LocalDate
@@ -59,7 +58,7 @@ class HistoryFragment : Fragment() , NameAdapter.NameItemClickListener {
     }
 
 
-    override fun onItemClick(name : Names , position : Int) {
+    override fun onItemClick(name : Names, position : Int) {
 
     }
 
