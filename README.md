@@ -10,11 +10,12 @@
 23.09.04 ~ 23.09.11
 
 ### 📽️ 시연 영상
-
+![gif](https://github.com/joye-seo/Team7ContactApp/assets/104261048/d27e8921-a5d4-45e8-94b6-ccf045e69f01)
 https://www.youtube.com/watch?v=vWqgZEVZb-E
 
 ### 🎨 와이어프레임
-
+![image](https://github.com/joye-seo/Team7ContactApp/assets/104261048/9882409a-5470-44b3-8095-81fb76158aec)
+![image](https://github.com/joye-seo/Team7ContactApp/assets/104261048/e196d1a1-5d8f-4a04-97b7-e362cb80e162)
 https://www.figma.com/file/WfnIywVP5UYBaa4HlE33lY/Untitled?type=whiteboard&node-id=8-91&t=bAo24IEPrtmbEmW3-0
 
 ### 👥 개발자
