@@ -70,7 +70,7 @@ https://www.figma.com/file/WfnIywVP5UYBaa4HlE33lY/Untitled?type=whiteboard&node-
 
 ### ContactDetailActivity
 * 작업자 : 이종민, 서수현
-* ScroView 로 화면 구현
+* ScrollView 로 화면 구현
 * Contactpage 아이템 클릭 시 더미데이터 화면에 출력
 * Contact 별 버튼 클릭 시 Detail에도 별 색이 변경되어 있음
 
