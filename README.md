@@ -18,6 +18,9 @@ https://www.youtube.com/watch?v=vWqgZEVZb-E
 ![image](https://github.com/joye-seo/Team7ContactApp/assets/104261048/e196d1a1-5d8f-4a04-97b7-e362cb80e162)
 https://www.figma.com/file/WfnIywVP5UYBaa4HlE33lY/Untitled?type=whiteboard&node-id=8-91&t=bAo24IEPrtmbEmW3-0
 
+### 발표 자료
+[자료] (https://drive.google.com/drive/folders/1moL8Ex7KCZ9vlgxBvK7RN77b8ADLJyU8?usp=sharing)
+
 ### 👥 개발자
 + ‍👩‍💻 황진주‍
     - https://github.com/jinjoo1
